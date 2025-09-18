@@ -10,7 +10,7 @@ export default function AdCard() {
     <div>
       <Card>
         <CardHeader></CardHeader>
-
+        
         <CardContent></CardContent>
 
         <CardFooter></CardFooter>
