@@ -11,7 +11,7 @@ export default function LandingPage() {
       </h1>
 
       <p className="text-lg  mb-10 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-        Danelec's in-house campaign tool allows you to create ready-to-post
+        Danelec&apos;s in-house campaign tool allows you to create ready-to-post
         campaigns in minutes.
         <span className="text-foreground"> Danelec</span>
         <span className="italic text-foreground">ACE</span>{" "}
