@@ -15,11 +15,11 @@ export default function EditorPage() {
       <p className="text-muted-foreground">Generating content ...</p>
       <ProgressDemo />
 
-      <div className="w-full max-w-[1400px] px-4">
+      <div className="w-full max-w-[1600px] px-4">
         <div className="flex justify-end mb-6">
           <DownloadXlsx />
         </div>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 gap-8">
           <AdCard />
           <AdCard />
           <AdCard />
