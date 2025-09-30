@@ -1,7 +1,6 @@
 import { LightDarkToggle } from "@/components/ui/light-dark-toggle";
-import StepperButton from "./components/stepper-button";
+
 import Stepper4 from "./components/stepper-button";
-import { DockDemo } from "../components/ui/dock-demo";
 
 export default function WizardLayout({
   children,

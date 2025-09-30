@@ -1,5 +1,3 @@
-export default function (){
-    return (
-        <div>Add additional context</div>
-    )
+export default function AdditionalContextPage() {
+  return <div>Add additional context</div>;
 }

@@ -1,6 +1,5 @@
-import { Card } from "@/components/ui/card";
 import AdCard from "./components/ad-card";
-import { CardDemo } from "./components/card-demo";
+
 import DownloadXlsx from "./components/download-button";
 import { ProgressDemo } from "../components/ui/progress";
 
