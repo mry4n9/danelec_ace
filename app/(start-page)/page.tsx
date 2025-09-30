@@ -18,7 +18,7 @@ export default function LandingPage() {
         <span className="text-foreground">(AI Content Engine)</span> streamlines
         the entire process with a{" "}
         <span className="text-foreground">guided, step-by-step workflow</span> -
-        to consolidating the campaign creation.
+        to consolidate the whole campaign creation.
       </p>
 
       <Button
