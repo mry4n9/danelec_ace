@@ -58,7 +58,7 @@ export default function AdCard() {
           <Button className="font-medium rounded-full">Demo Request</Button>
         </div>
 
-        <div className="mt-5 flex h-5 items-center space-x-11 justify-center text-muted-foreground ">
+        <div className="mt-5 flex h-5 items-center justify-evenly text-muted-foreground ">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon">
