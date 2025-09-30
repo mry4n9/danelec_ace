@@ -11,15 +11,14 @@ export default function LandingPage() {
       </h1>
 
       <p className="text-lg  mb-10 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-        Danelec&apos;s in-house campaign tool allows you to create ready-to-post
-        campaigns in minutes.
+        Danelec&apos;s in-house campaign copy tool allows you to create
+        ready-to-post campaigns all within a single app.
         <span className="text-foreground"> Danelec</span>
         <span className="italic text-foreground">ACE</span>{" "}
         <span className="text-foreground">(AI Content Engine)</span> streamlines
         the entire process with a{" "}
         <span className="text-foreground">guided, step-by-step workflow</span> -
-        brining everything into a single app so you can focus on{" "}
-        <span className="text-foreground">strategy</span>, not copy-pasting.
+        to consolidating the campaign creation.
       </p>
 
       <Button
