@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "./components/ui/footer";
+import { LightDarkToggle } from "@/components/ui/light-dark-toggle";
+import { DockDemo } from "./components/ui/dock-demo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +40,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2">
+            <DockDemo />
+          </div>
+          <LightDarkToggle className="fixed top-4 right-4" />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

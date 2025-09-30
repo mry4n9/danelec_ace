@@ -1,3 +1,5 @@
+// This is the one to use.
+
 "use client";
 
 import { useState } from "react";
@@ -13,14 +15,34 @@ import {
 } from "@/components/ui/stepper";
 
 const steps = [
-  { step: 1, slug: "solution", title: "Step One", description: "Select Solution" },
-  { step: 2, slug: "funnel", title: "Step Two", description: "Select Funnel Stage" },
-  { step: 3, slug: "messaging-matrix", title: "Step Three", description: "Messaging Matrix" },
-  { step: 4, slug: "additional-context", title: "Step Four", description: "Additional Context" },
+  {
+    step: 1,
+    slug: "solution",
+    title: "Step One",
+    description: "Select Solution",
+  },
+  {
+    step: 2,
+    slug: "funnel",
+    title: "Step Two",
+    description: "Select Funnel Stage",
+  },
+  {
+    step: 3,
+    slug: "messaging-matrix",
+    title: "Step Three",
+    description: "Messaging Matrix",
+  },
+  {
+    step: 4,
+    slug: "additional-context",
+    title: "Step Four",
+    description: "Additional Context",
+  },
 ];
 
-export default function StepperButton() {
-  const [currentStep, setCurrentStep] = useState(1); // start on step 2
+export default function Stepper4() {
+  const [currentStep, setCurrentStep] = useState(1);
 
   const maxStep = steps.length;
   const goPrev = () => setCurrentStep((s) => Math.max(1, s - 1));

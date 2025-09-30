@@ -1,4 +1,4 @@
 export default function CampaignSetup() {
-  return <div>Campaign Setup Area</div>;
+  return <div>Campaign Setup Area from page.tsx</div>;
 
 }
