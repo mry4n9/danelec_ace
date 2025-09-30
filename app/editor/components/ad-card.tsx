@@ -12,7 +12,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { AdobeIllustrator, CoinsSwap, DesignNibSolid, Star } from "iconoir-react";
+import { AdobeIllustrator, DesignNibSolid, Star } from "iconoir-react";
 import Image from "next/image";
 
 export default function AdCard() {

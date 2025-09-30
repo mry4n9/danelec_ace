@@ -1,7 +1,6 @@
 import AdCard from "./components/ad-card";
 
 import DownloadXlsx from "./components/download-button";
-import { ProgressDemo } from "../components/ui/progress";
 
 export default function EditorPage() {
   return (
