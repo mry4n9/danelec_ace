@@ -1,5 +1,3 @@
-export default function (){
-    return (
-        <div>Select matrix</div>
-    )
+export default function MatrixSelector() {
+  return <div>Select matrix</div>;
 }

@@ -1,4 +1,4 @@
-export default function (){
+export default function SolutionSelector(){
     return (
         <div>Select solution</div>
     )
