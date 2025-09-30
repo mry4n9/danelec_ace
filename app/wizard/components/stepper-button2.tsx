@@ -1,3 +1,6 @@
+{
+  /*
+
 // app/wizard/components/stepper-button.tsx
 "use client";
 
@@ -87,4 +90,8 @@ export default function StepperButton() {
       </p>
     </div>
   );
+}
+
+
+*/
 }
