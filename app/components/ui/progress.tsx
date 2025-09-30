@@ -22,7 +22,7 @@ export function ProgressDemo() {
     return () => clearInterval(interval)
   }, [])
 
-  return <Progress value={progress} className="w-[60%] h-2 w-140" />
+  return <Progress value={progress} className="w-[60%] h-1 w-140" />
 }
 
 

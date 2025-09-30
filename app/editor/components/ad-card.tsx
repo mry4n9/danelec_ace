@@ -12,7 +12,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { CoinsSwap, DesignNibSolid, Star } from "iconoir-react";
+import { AdobeIllustrator, CoinsSwap, DesignNibSolid, Star } from "iconoir-react";
 import Image from "next/image";
 
 export default function AdCard() {
@@ -62,7 +62,7 @@ export default function AdCard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon">
-                <CoinsSwap className="size-6" />
+                <AdobeIllustrator className="size-6.5" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>Regenerate AI</TooltipContent>

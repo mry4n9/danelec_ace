@@ -15,11 +15,12 @@ import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import {
   Filter,
+  GoogleDocs,
   HomeSimpleDoor,
-  ItalicSquare,
   NumberedListLeft,
   PlusCircle,
   SeaWaves,
+  SendDiagonal,
   ViewGrid,
 } from "iconoir-react";
 
@@ -44,7 +45,14 @@ const DATA = {
       label: "Additional context",
     },
   ],
-  navbar3: [{ href: "/editor", icon: ItalicSquare, label: "Edit-page" }],
+  navbar3: [
+    {
+      href: "/progressbar",
+      icon: SendDiagonal,
+      label: "Progress bar",
+    },
+    { href: "/editor", icon: GoogleDocs, label: "Edit-page" },
+  ],
 };
 
 export function DockDemo() {
