@@ -40,7 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2">
+          <div className="fixed bottom-7 left-1/2 -translate-x-1/2">
             <DockDemo />
           </div>
           <LightDarkToggle className="fixed top-4 right-4" />

@@ -65,7 +65,7 @@ export default function AdCard() {
                 <AdobeIllustrator className="size-6.5" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Regenerate AI</TooltipContent>
+            <TooltipContent>Recreate with AI</TooltipContent>
           </Tooltip>
           <Separator orientation="vertical" className="bg-foreground/30" />
           <Tooltip>
@@ -74,7 +74,7 @@ export default function AdCard() {
                 <DesignNibSolid className="size-6" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Edit</TooltipContent>
+            <TooltipContent>Edit ad</TooltipContent>
           </Tooltip>
           <Separator orientation="vertical" className="bg-foreground/30" />
           <Tooltip>
@@ -83,7 +83,9 @@ export default function AdCard() {
                 <Star className="size-6" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Favorite to highlight in export</TooltipContent>
+            <TooltipContent>
+              Starred ads will be highlighted in Excel
+            </TooltipContent>
           </Tooltip>
         </div>
       </CardContent>
