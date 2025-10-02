@@ -1,4 +1,4 @@
-import { OnboardingSchema } from "../features/onboarding/schema";
+import { OnboardingSchema } from "../app/features/onboarding/schema";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 

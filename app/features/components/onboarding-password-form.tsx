@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useOnboardingStore } from "@/app/multi-step-form-tut/store";
+import { useOnboardingStore } from "@/multi-step-form-tut/store";
 import { useEffect } from "react";
 
 const onboardingPasswordSchema = onboardingSchema.pick({
