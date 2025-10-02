@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useOnboardingStore } from "@/app/multi-step-form-tut/store";
 
 const onboardingNameSchema = onboardingSchema.pick({
   firstName: true,
@@ -27,6 +28,8 @@ type OnboardingNameSchema = z.infer<typeof onboardingNameSchema>;
 export default function OnboardingNameForm() {
   const router = useRouter();
 
+  const setData = useOnboardingStore((state) => state.setData)
+
   const form = useForm<OnboardingNameSchema>({
     resolver: zodResolver(onboardingNameSchema),
     defaultValues: {
@@ -36,7 +39,7 @@ export default function OnboardingNameForm() {
   });
 
   const onSubmit = (data: OnboardingNameSchema) => {
-    console.log(data);
+    setData(data);
     router.push("/multi-step-form-tut/password");
   };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import z from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onboardingSchema } from "../onboarding/schema";
 import { useForm } from "react-hook-form";
@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useOnboardingStore } from "@/app/multi-step-form-tut/store";
+import { useEffect } from "react";
 
 const onboardingPasswordSchema = onboardingSchema.pick({
   password: true,
@@ -27,6 +29,11 @@ type OnboardingPasswordSchema = z.infer<typeof onboardingPasswordSchema>;
 export default function OnboardingPasswordForm() {
   const router = useRouter();
 
+  const firstName = useOnboardingStore((state) => state.firstName);
+  const lastName = useOnboardingStore((state) => state.lastName);
+
+  const setData = useOnboardingStore((state) => state.setData);
+
   const form = useForm<OnboardingPasswordSchema>({
     resolver: zodResolver(onboardingPasswordSchema),
     defaultValues: {
@@ -36,9 +43,16 @@ export default function OnboardingPasswordForm() {
   });
 
   const onSubmit = (data: OnboardingPasswordSchema) => {
-    console.log(data);
+    setData(data);
     router.push("/multi-step-form-tut/username");
   };
+
+  useEffect(() => {
+    if (!useOnboardingStore.persist.hasHydrated) return;
+    if (!firstName || !lastName) {
+      router.push("/multi-step-form-tut/name");
+    }
+  }, [useOnboardingStore.persist.hasHydrated, firstName, lastName, router]);
 
   return (
     <Form {...form}>
@@ -53,7 +67,7 @@ export default function OnboardingPasswordForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="John" {...field} />
+                <Input placeholder="********" type="password" {...field} />
               </FormControl>
               <FormDescription>This is your password.</FormDescription>
               <FormMessage />
@@ -67,7 +81,7 @@ export default function OnboardingPasswordForm() {
             <FormItem>
               <FormLabel>Confirm Password</FormLabel>
               <FormControl>
-                <Input placeholder="Doe" {...field} />
+                <Input placeholder="********" type="password" {...field} />
               </FormControl>
               <FormDescription>
                 This is your password confirmation.

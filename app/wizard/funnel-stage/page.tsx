@@ -3,25 +3,32 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function FunnelSelector() {
   return (
-    <RadioGroup>
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="default" id="r1" />
-        <Label htmlFor="r1">Brand Awareness</Label>
-      </div>
+    <div className="mt-20">
+      <h2>Select Funnel</h2>
+      <p className="text-lg mb-10 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
+        Choose between different funnel stages to create copys for.
+      </p>
+      <div className="">
+      <RadioGroup>
+        <div className="flex items-center gap-3">
+          <RadioGroupItem value="Brand Awareness" id="r1" />
+          <Label htmlFor="r1">Brand Awareness</Label>
+        </div>
 
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="comfortable" id="r2" />
-        <Label htmlFor="r2">Demand Generation</Label>
-      </div>
+        <div className="flex items-center gap-3">
+          <RadioGroupItem value="Demand Generation" id="r2" />
+          <Label htmlFor="r2">Demand Generation</Label>
+        </div>
 
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="compact" id="r3" />
-        <Label htmlFor="r3">Demand Capture</Label>
+        <div className="flex items-center gap-3">
+          <RadioGroupItem value="Demand Capture" id="r3" />
+          <Label htmlFor="r3">Demand Capture</Label>
+        </div>
+      </RadioGroup>
       </div>
-    </RadioGroup>
+    </div>
   );
 }
-
 
 {
   /* OpenAI with card component
