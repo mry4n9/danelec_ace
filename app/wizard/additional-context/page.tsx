@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { PageSearch, Upload } from "iconoir-react";
+import { PageSearch } from "iconoir-react";
 
 export default function AdditionalContextPage() {
   return (
@@ -9,7 +9,8 @@ export default function AdditionalContextPage() {
       <h2>Add Additional Context</h2>
       <p className="text-lg mb-30 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
         Optional step to add additional context to have more creative control
-        over the final copy. + Add additional instructions on how to use this step.
+        over the final copy. + Add additional instructions on how to use this
+        step.
       </p>
 
       <div className="grid w-full max-w-sm items-center gap-3 mb-10">
@@ -33,7 +34,9 @@ export default function AdditionalContextPage() {
       </div>
       <div className="grid w-full max-w-sm items-center gap-3 mb-10 mt-35">
         <Label htmlFor="email">Last Step</Label>
-        <Button className="bg-[#FF4E2A] hover:bg-[#e6451f] font-bold ">Generate</Button>
+        <Button className="bg-[#FF4E2A] hover:bg-[#e6451f] font-bold ">
+          Generate
+        </Button>
       </div>
     </div>
   );

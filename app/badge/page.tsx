@@ -1,4 +1,4 @@
-import { AlertCircleIcon, BadgeCheckIcon, CheckIcon } from "lucide-react";
+import { BadgeCheckIcon } from "lucide-react";
 import { Droplet, Flash, Puzzle, Wrench } from "iconoir-react";
 import { Badge } from "@/components/ui/badge";
 

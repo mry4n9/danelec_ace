@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/tooltip";
 import { AdobeIllustrator, DesignNibSolid, Star } from "iconoir-react";
 import Image from "next/image";
-import { B1, B2, B3 } from "./matrix-badges";
 
 export default function AdCard() {
   return (
