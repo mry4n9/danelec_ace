@@ -19,8 +19,8 @@ export default function WizardLayout({
       
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col items-center">
-        <div className="w-full max-w-2xl mx-auto flex flex-col flex-1">
+      <div className=" flex flex-col items-center">
+        <div className="w-full max-w-2xl mx-auto flex flex-col ">
           {children}
         </div>
       </div>

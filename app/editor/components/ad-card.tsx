@@ -17,7 +17,7 @@ import Image from "next/image";
 
 export default function AdCard() {
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-90 bg-[#FAF9F9] dark:bg-neutral-900">
       <CardHeader className="flex items-center gap-2">
         <Image
           src="/danelec_pp.jpeg"
@@ -51,17 +51,17 @@ export default function AdCard() {
           </p>
         </div>
 
-        <div className="bg-muted px-3 py-2 flex flex-row gap-3 items-center justify-between">
+        <div className="bg-[#E0DCD8] dark:bg-[#333333] px-3 py-2 flex flex-row gap-3 items-center justify-between">
           <p className="font-semibold text-sm text-center text-left">
             Request your compliance assessment today
           </p>
-          <Button className="font-medium rounded-full">Demo Request</Button>
+          <Button className="font-medium rounded-full bg-[#857472] dark:bg-[#888888] text-white">Demo Request</Button>
         </div>
 
         <div className="mt-5 flex h-5 items-center justify-evenly text-muted-foreground ">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
                 <AdobeIllustrator className="size-6.5" />
               </Button>
             </TooltipTrigger>
@@ -70,7 +70,7 @@ export default function AdCard() {
           <Separator orientation="vertical" className="bg-foreground/30" />
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
                 <DesignNibSolid className="size-6" />
               </Button>
             </TooltipTrigger>
@@ -79,7 +79,7 @@ export default function AdCard() {
           <Separator orientation="vertical" className="bg-foreground/30" />
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
                 <Star className="size-6" />
               </Button>
             </TooltipTrigger>

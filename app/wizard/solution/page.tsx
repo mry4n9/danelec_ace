@@ -1,3 +1,25 @@
+"use client";
+
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+const products = [
+  {
+    id: "fleet-insights",
+    name: "Danelec Fleet Insights",
+    description: "Hey",
+  },
+  {
+    id: "fleet-insights",
+    name: "Danelec Fleet Insights",
+    description: "Hey222",
+  },
+];
+
 export default function SolutionSelector() {
   return (
     <div className="mt-20">
@@ -5,6 +27,332 @@ export default function SolutionSelector() {
       <p className="text-lg mb-10 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
         Choose one solution to create copys for.
       </p>
+
+      <div>
+        {products.map((product) => (
+          <Card
+            key={product.id}
+            className="cursor-pointer hover:border-blue-600 hover:bg-blue-100"
+          >
+            <CardHeader>
+              <CardTitle>{product.name}</CardTitle>
+              <CardDescription>{product.description}</CardDescription>
+            </CardHeader>
+          </Card>
+        ))}
+      </div>
     </div>
   );
+}
+
+{
+  /*
+"use client";
+import React, { useState } from "react";
+import { Flash } from "iconoir-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+// Product data structure based on Danelec's offerings
+const products = [
+  {
+    id: "fleet-insights",
+    name: "Danelec Fleet Insights",
+    icon: Flash,
+    description: "Real-time performance monitoring and emissions reduction",
+    subSolutions: [
+      {
+        id: "data-quality",
+        name: "Data Quality",
+        description:
+          "Ensure reliable, high-fidelity sensor data with automated validation",
+      },
+      {
+        id: "emissions-compliance",
+        name: "Emissions Compliance",
+        description:
+          "Monitor and reduce carbon footprint with trusted technical insights",
+      },
+      {
+        id: "performance-optimization",
+        name: "Performance Optimization",
+        description:
+          "Identify underperforming vessels and optimize fuel consumption",
+      },
+    ],
+  },
+  {
+    id: "onboard-insights",
+    name: "Danelec Onboard Insights",
+    icon: Flash,
+    description: "Empower crew with ship performance insights",
+    subSolutions: [
+      {
+        id: "bridge-ecr-monitoring",
+        name: "Bridge & ECR Monitoring",
+        description: "Real-time KPIs for bridge and engine control room",
+      },
+      {
+        id: "crew-optimization",
+        name: "Crew Optimization Tools",
+        description:
+          "Enable proactive operational efficiency for onboard teams",
+      },
+    ],
+  },
+  {
+    id: "danelec-collect",
+    name: "Danelec Collect",
+    icon: Flash,
+    description: "Maritime IoT for high-frequency data collection",
+    subSolutions: [
+      {
+        id: "iot-infrastructure",
+        name: "IoT Infrastructure",
+        description: "Scalable solution supporting up to 250 data tags",
+      },
+      {
+        id: "shore-transmission",
+        name: "Shore Transmission",
+        description:
+          "Secure data transmission from vessel to shore-based systems",
+      },
+    ],
+  },
+  {
+    id: "danelec-edge",
+    name: "Danelec Edge",
+    icon: Flash,
+    description: "Edge computing for uninterrupted onboard applications",
+    subSolutions: [
+      {
+        id: "application-uptime",
+        name: "Application Uptime",
+        description:
+          "Ensure continuous access to critical onboard applications",
+      },
+      {
+        id: "local-processing",
+        name: "Local Processing",
+        description: "Process data locally with reduced latency",
+      },
+    ],
+  },
+  {
+    id: "vdr-svdr",
+    name: "VDR & S-VDR Systems",
+    icon: Flash,
+    description: "Voyage Data Recorders for maritime safety compliance",
+    subSolutions: [
+      {
+        id: "dm100-vdr",
+        name: "DM100 VDR",
+        description:
+          "Full Voyage Data Recorder for passenger ships and cargo vessels",
+      },
+      {
+        id: "dm100-svdr-g2",
+        name: "DM100 S-VDR G2",
+        description: "Next-generation Simplified VDR with cloud connectivity",
+      },
+      {
+        id: "dm100-lvdr",
+        name: "DM100 L-VDR",
+        description: "Lightweight VDR for specific vessel types",
+      },
+    ],
+  },
+];
+
+export default function SolutionSelector() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedSubSolution, setSelectedSubSolution] = useState("");
+
+  const handleProductSelect = (productId) => {
+    setSelectedProduct(productId);
+    setSelectedSubSolution(""); // Reset sub-solution when changing product
+  };
+
+  const handleContinue = () => {
+    if (selectedProduct && selectedSubSolution) {
+      alert(
+        `Selected: ${selectedProduct} → ${selectedSubSolution}\nReady to proceed to next step!`
+      );
+      // In real implementation, this would navigate to the next wizard step
+    }
+  };
+
+  const selectedProductData = products.find((p) => p.id === selectedProduct);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header 
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-2">
+            <Flash className="w-8 h-8 text-blue-600" />
+            <h1 className="text-3xl font-bold text-slate-900">Danelec ACE</h1>
+          </div>
+          <p className="text-slate-600 text-lg">
+            Select a solution to create your LinkedIn campaign content
+          </p>
+        </div>
+
+        {/* Progress Indicator 
+        <div className="mb-8 flex items-center gap-2">
+          <Badge variant="default" className="bg-blue-600">
+            Step 1 of 4
+          </Badge>
+          <span className="text-sm text-slate-600">Solution Selection</span>
+        </div>
+
+        {/* Main Content 
+        <div className="space-y-8">
+          {/* Product Selection 
+          <div>
+            <h2 className="text-xl font-semibold text-slate-900 mb-4">
+              Choose a Danelec Solution
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {products.map((product) => {
+                const Icon = product.icon;
+                const isSelected = selectedProduct === product.id;
+
+                return (
+                  <Card
+                    key={product.id}
+                    className={`cursor-pointer transition-all duration-200 hover:shadow-lg ${
+                      isSelected
+                        ? "ring-2 ring-blue-600 shadow-lg border-blue-600"
+                        : "hover:border-blue-300"
+                    }`}
+                    onClick={() => handleProductSelect(product.id)}
+                  >
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`p-2 rounded-lg ${
+                              isSelected ? "bg-blue-600" : "bg-blue-100"
+                            }`}
+                          >
+                            <Icon
+                              className={`w-6 h-6 ${
+                                isSelected ? "text-white" : "text-blue-600"
+                              }`}
+                            />
+                          </div>
+                        </div>
+                        {isSelected && (
+                          <Flash className="w-5 h-5 text-blue-600" />
+                        )}
+                      </div>
+                      <CardTitle className="text-lg mt-2">
+                        {product.name}
+                      </CardTitle>
+                      <CardDescription className="text-sm">
+                        {product.description}
+                      </CardDescription>
+                    </CardHeader>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Sub-Solution Selection (shown after product selection) 
+          {selectedProductData && (
+            <div className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-4">
+                <Flash className="w-5 h-5 text-slate-600" />
+                <h3 className="text-lg font-semibold text-slate-900">
+                  Select Focus Area for {selectedProductData.name}
+                </h3>
+              </div>
+
+              <RadioGroup
+                value={selectedSubSolution}
+                onValueChange={setSelectedSubSolution}
+                className="space-y-3"
+              >
+                {selectedProductData.subSolutions.map((subSolution) => (
+                  <div
+                    key={subSolution.id}
+                    className={`flex items-start space-x-3 p-4 rounded-lg border-2 transition-all cursor-pointer ${
+                      selectedSubSolution === subSolution.id
+                        ? "border-blue-600 bg-blue-50"
+                        : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                    }`}
+                    onClick={() => setSelectedSubSolution(subSolution.id)}
+                  >
+                    <RadioGroupItem
+                      value={subSolution.id}
+                      id={subSolution.id}
+                      className="mt-1"
+                    />
+                    <div className="flex-1">
+                      <Label
+                        htmlFor={subSolution.id}
+                        className="font-medium text-slate-900 cursor-pointer"
+                      >
+                        {subSolution.name}
+                      </Label>
+                      <p className="text-sm text-slate-600 mt-1">
+                        {subSolution.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </RadioGroup>
+            </div>
+          )}
+
+          {/* Action Buttons 
+          <div className="flex justify-between items-center pt-4">
+            <Button variant="outline" disabled className="text-slate-400">
+              Back
+            </Button>
+            <Button
+              onClick={handleContinue}
+              disabled={!selectedProduct || !selectedSubSolution}
+              className="bg-blue-600 hover:bg-blue-700 text-white"
+            >
+              Continue to Next Step
+            </Button>
+          </div>
+        </div>
+
+        {/* Selection Summary 
+        {selectedProduct && selectedSubSolution && (
+          <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg">
+            <div className="flex items-start gap-3">
+              <Flash className="w-5 h-5 text-green-600 mt-0.5" />
+              <div>
+                <p className="font-medium text-green-900">Selection Complete</p>
+                <p className="text-sm text-green-700 mt-1">
+                  {selectedProductData.name} →{" "}
+                  {
+                    selectedProductData.subSolutions.find(
+                      (s) => s.id === selectedSubSolution
+                    )?.name
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+*/
 }

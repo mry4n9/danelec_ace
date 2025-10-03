@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { PageSearch } from "iconoir-react";
 
 export default function AdditionalContextPage() {
@@ -15,16 +16,17 @@ export default function AdditionalContextPage() {
 
       <div className="grid w-full max-w-sm items-center gap-3 mb-10">
         <Label htmlFor="email">Custom Instruction</Label>
-        <Input
-          type="string"
-          id="email"
-          placeholder="Custom Instructions will be prioritized"
-        />
+        <Textarea placeholder="Type custom instructions here" />
+        <p className="text-muted-foreground text-sm">
+          You custom instructions will be prioritized.
+        </p>
       </div>
+
       <div className="grid w-full max-w-sm items-center gap-3 mb-10">
         <Label htmlFor="email">Scrape Website</Label>
         <Input type="string" id="email" placeholder="www.danelec.com" />
       </div>
+
       <div className="grid w-full max-w-sm items-center gap-3 mb-10">
         <Label htmlFor="email">Scrape PDF</Label>
         <Button>
@@ -32,7 +34,8 @@ export default function AdditionalContextPage() {
           Upload File
         </Button>
       </div>
-      <div className="grid w-full max-w-sm items-center gap-3 mb-10 mt-35">
+
+      <div className="grid w-full max-w-sm items-center gap-3 mb-10 mt-25">
         <Label htmlFor="email">Last Step</Label>
         <Button className="bg-[#FF4E2A] hover:bg-[#e6451f] font-bold ">
           Generate

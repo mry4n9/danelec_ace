@@ -1,10 +1,15 @@
 import { Badge } from "@/components/ui/badge";
-import { Droplet, Flash, Puzzle, Wrench } from "iconoir-react";
+import {
+  CompassSolid,
+  DropletSolid,
+  FillColorSolid,
+  FlashSolid,
+} from "iconoir-react";
 
 export function B1() {
   return (
-    <Badge className="bg-blue-500 text-white dark:bg-blue-600">
-      <Droplet />
+    <Badge className="bg-[#FF4E2A] text-white">
+      <DropletSolid className="text-blue-400" />
       Operate
     </Badge>
   );
@@ -12,8 +17,8 @@ export function B1() {
 
 export function B2() {
   return (
-    <Badge className="bg-blue-500 text-white dark:bg-blue-600">
-      <Wrench /> Maintain
+    <Badge className="bg-[#FF4E2A] text-white">
+      <FillColorSolid className="text-slate-700"/> Maintain
     </Badge>
   );
 }
@@ -21,7 +26,7 @@ export function B2() {
 export function B3() {
   return (
     <Badge variant="default">
-      <Flash /> Performance Optimization
+      <FlashSolid className="text-yellow-300 dark:text-yellow-400" /> Perf. Optimization
     </Badge>
   );
 }
@@ -29,7 +34,7 @@ export function B3() {
 export function B4() {
   return (
     <Badge variant="default">
-      <Puzzle />
+      <CompassSolid className="size-8 text-[#FF4E2A]" />
       Reduce Complexity
     </Badge>
   );
