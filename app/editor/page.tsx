@@ -16,7 +16,7 @@ export default function EditorPage() {
         <DownloadXlsx />
       </div>
       <div className="w-full max-w-[1600px] px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:gap-0 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:gap-0 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5 space-y-9">
           <AdCard />
           <AdCard />
           <AdCard />

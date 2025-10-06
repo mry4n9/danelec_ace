@@ -2,16 +2,25 @@
 
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  CircleSpark,
+  DashboardSpeed,
+  DatabaseTag,
+  Glasses,
+  HealthShield,
+} from "iconoir-react";
 
 const solutions = [
   {
     id: "fleet-insights",
     name: "Danelec Fleet Insights",
-    description: "This is the text for Danelec Fleet Insights",
+    icon: DashboardSpeed,
+    description: "Track and boost ship performance",
     subSolutions: [
       { id: "1", name: "Data Insights", description: "3" },
       { id: "2", name: "Fleet Insights", description: "3" },
@@ -22,22 +31,33 @@ const solutions = [
   {
     id: "voyage-insights",
     name: "Danelec Voyage Insights",
-    description: "This is the text for Danelec Voyage Insights",
+    icon: Glasses,
+    description: "Enhance voyage planning ",
     subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
   },
 
   {
     id: "kyma-power-meter",
     name: "Kyma Power Meter",
-    description: "This is the text for Kyma Power Meter",
+    icon: CircleSpark,
+    description: "Track vessel power",
     subSolutions: [{ id: "1", name: "EPL to ShaPoLi", description: "3" }],
   },
 
   {
     id: "vdr",
     name: "Danelec VDR",
-    description: "This is the text for Danelec VDR",
+    icon: DatabaseTag,
+    description: "Reliable Voyage Data Recording ",
     subSolutions: [{ id: "1", name: "DM100 VDR G3", description: "3" }],
+  },
+
+  {
+    id: "safety-insights",
+    name: "Danelec Safety Insights",
+    icon: HealthShield,
+    description: "Monitor and Prepare for Service",
+    subSolutions: [{ id: "1", name: "Safety Insights 1", description: "3" }],
   },
 ];
 
@@ -49,16 +69,38 @@ export default function SolutionSelector() {
         Choose one solution to create copys for.
       </p>
 
+      {/*
+      <div className="mb-8 flex items-center gap-2">
+        <span className="text-sm text-slate-600">Solution Selection</span>
+      </div>
       <div>
         {solutions.map((solution) => (
           <Card
             key={solution.id}
-            className="cursor-pointer hover:border-blue-600 hover:bg-blue-100"
+            className="cursor-pointer hover:border-[#FF4E2A] hover:bg-[#F2DED9]"
           >
             <CardHeader>
               <CardTitle>{solution.name}</CardTitle>
               <CardDescription>{solution.description}</CardDescription>
             </CardHeader>
+          </Card>
+        ))}
+      </div>
+      */}
+
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols 3 lg:grid-cols-3 gap-6">
+        {solutions.map((solution) => (
+          <Card
+            key={solution.id}
+            className="cursor-pointer transition-all hover:border-neutral-400  w-52 h-50"
+          >
+            <CardHeader className="flex flex-col items-center">
+              <solution.icon className="size-11" />
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <CardTitle>{solution.name}</CardTitle>
+              <CardDescription>{solution.description}</CardDescription>
+            </CardContent>
           </Card>
         ))}
       </div>

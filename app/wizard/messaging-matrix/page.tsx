@@ -181,7 +181,7 @@ export default function MatrixSelector() {
           </CardContent>
           <CardFooter className="mt-auto flex-col gap-3">
             <Separator className="mb-3" />
-            <Label className="hover:bg-[#F4CEC5] flex items-start gap-3 rounded-lg border p-2 has-[[aria-checked=true]]:border-[#FF4E2A] has-[[aria-checked=true]]:bg-[#F2DED9] dark:hover:bg-[#992F19] dark:has-[[aria-checked=true]]:border-[#FF4E2A] dark:has-[[aria-checked=true]]:bg-[#992F19]">
+            <Label className=" flex items-start gap-3 rounded-lg border p-2  dark:hover:bg-[#992F19] dark:has-[[aria-checked=true]]:border-[#FF4E2A] dark:has-[[aria-checked=true]]:bg-[#992F19]">
               <Checkbox
                 id="toggle-3"
                 defaultChecked
