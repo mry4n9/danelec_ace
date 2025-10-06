@@ -51,18 +51,18 @@ export default function AdCard() {
           </p>
         </div>
 
-        <div className="bg-[#E0DCD8] dark:bg-[#333333] px-3 py-2 flex flex-row gap-3 items-center justify-between">
+        <div className="bg-[#E9E6E3] dark:bg-[#888888] px-3 py-2 flex flex-row gap-3 items-center justify-between">
           <p className="font-semibold text-sm text-center text-left">
             Request your compliance assessment today
           </p>
-          <Button className="font-medium rounded-full bg-[#857472] dark:bg-[#888888] text-white">Demo Request</Button>
+          <Button className="font-medium rounded-full bg-[#998B8A] dark:bg-[#333333] text-white">Demo Request</Button>
         </div>
 
         <div className="mt-5 flex h-5 items-center justify-evenly text-muted-foreground ">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
-                <AdobeIllustrator className="size-6.5" />
+                <AdobeIllustrator className="size-7" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>Recreate with AI</TooltipContent>
@@ -71,7 +71,7 @@ export default function AdCard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
-                <DesignNibSolid className="size-6" />
+                <DesignNibSolid className="size-7.5" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>Edit ad</TooltipContent>
@@ -80,7 +80,7 @@ export default function AdCard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
-                <Star className="size-6" />
+                <Star className="size-7" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>

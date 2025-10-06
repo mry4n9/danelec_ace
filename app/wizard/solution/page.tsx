@@ -7,16 +7,37 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const products = [
+const solutions = [
   {
     id: "fleet-insights",
     name: "Danelec Fleet Insights",
-    description: "Hey",
+    description: "This is the text for Danelec Fleet Insights",
+    subSolutions: [
+      { id: "1", name: "Data Insights", description: "3" },
+      { id: "2", name: "Fleet Insights", description: "3" },
+      { id: "3", name: "Emission Compliance", description: "3" },
+    ],
   },
+
   {
-    id: "fleet-insights",
-    name: "Danelec Fleet Insights",
-    description: "Hey222",
+    id: "voyage-insights",
+    name: "Danelec Voyage Insights",
+    description: "This is the text for Danelec Voyage Insights",
+    subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
+  },
+
+  {
+    id: "kyma-power-meter",
+    name: "Kyma Power Meter",
+    description: "This is the text for Kyma Power Meter",
+    subSolutions: [{ id: "1", name: "EPL to ShaPoLi", description: "3" }],
+  },
+
+  {
+    id: "vdr",
+    name: "Danelec VDR",
+    description: "This is the text for Danelec VDR",
+    subSolutions: [{ id: "1", name: "DM100 VDR G3", description: "3" }],
   },
 ];
 
@@ -29,14 +50,14 @@ export default function SolutionSelector() {
       </p>
 
       <div>
-        {products.map((product) => (
+        {solutions.map((solution) => (
           <Card
-            key={product.id}
+            key={solution.id}
             className="cursor-pointer hover:border-blue-600 hover:bg-blue-100"
           >
             <CardHeader>
-              <CardTitle>{product.name}</CardTitle>
-              <CardDescription>{product.description}</CardDescription>
+              <CardTitle>{solution.name}</CardTitle>
+              <CardDescription>{solution.description}</CardDescription>
             </CardHeader>
           </Card>
         ))}

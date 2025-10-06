@@ -23,14 +23,24 @@ export default function LandingPage() {
 
       <Button
         asChild
-        className="inline-flex items-center gap-2 font-mono text-white border border-transparent dark:bg-neutral-800 "
+        className="group inline-flex items-center gap-2 font-mono text-white border border-transparent dark:bg-neutral-800 hover:bg-[#FF4E2A] hover:dark:bg-[#FF4E2A]"
+      >
+        <Link href="/wizard">
+          <Atom className="size-6 text-[#FF4E2A] group-hover:text-[#ebeff0]" />
+          Get Started
+          <NavArrowRight />
+        </Link>
+      </Button>
+      {/* <Button
+        asChild
+        className="inline-flex items-center gap-2 font-mono text-white hover:text-[#331714] border border-transparent dark:bg-neutral-800 hover:bg-[#F1EEEC] hover:dark:bg-[#FF4E2A]"
       >
         <Link href="/wizard">
           <Atom className="size-6 text-[#FF4E2A]" />
           Get Started
           <NavArrowRight />
         </Link>
-      </Button>
+      </Button> */}
     </>
   );
 }
