@@ -62,7 +62,7 @@ const solutions = [
   {
     id: "collect",
     name: "Danelec Collect",
-    icon: Timer,
+    icon: DataTransferDown,
     description: "Unlock The Power of Maritime Data",
     subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
   },
@@ -70,7 +70,7 @@ const solutions = [
   {
     id: "edge",
     name: "Danelec Edge",
-    icon: Glasses,
+    icon: Timer,
     description: "Secure Application Uptime",
     subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
   },
@@ -138,7 +138,9 @@ export default function SolutionSelector() {
                   solution.name
                 )}
               </CardTitle>
-              <CardDescription className="text-xs">{solution.description}</CardDescription>
+              <CardDescription className="text-xs">
+                {solution.description}
+              </CardDescription>
             </CardContent>
           </Card>
         ))}
