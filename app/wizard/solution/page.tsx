@@ -120,7 +120,7 @@ export default function SolutionSelector() {
         {solutions.map((solution) => (
           <Card
             key={solution.id}
-            className="cursor-pointer transition-all hover:border-neutral-400  w-50 h-50"
+            className="cursor-pointer transition-all hover:border-neutral-400 w-50 h-50"
           >
             <CardHeader className="flex flex-col items-center">
               <div className="p-1.5 border rounded-2xl border-neutral-400 ">
@@ -128,7 +128,7 @@ export default function SolutionSelector() {
               </div>
             </CardHeader>
             <CardContent className="space-y-2">
-              <CardTitle className="tracking-wider font-bold">
+              <CardTitle className="tracking-wide font-bold">
                 {solution.name.includes("Danelec") ? (
                   <>
                     <span className="text-[#FF4E2A]">Danelec</span>{" "}
