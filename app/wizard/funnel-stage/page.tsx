@@ -1,5 +1,7 @@
+import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
 
 export default function FunnelSelector() {
   return (
@@ -8,23 +10,44 @@ export default function FunnelSelector() {
       <p className="text-lg mb-10 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
         Choose between different funnel stages to create copys for.
       </p>
-      <div className="">
-      <RadioGroup>
-        <div className="flex items-center gap-3">
-          <RadioGroupItem value="Brand Awareness" id="r1" />
-          <Label htmlFor="r1">Brand Awareness</Label>
-        </div>
 
-        <div className="flex items-center gap-3">
-          <RadioGroupItem value="Demand Generation" id="r2" />
-          <Label htmlFor="r2">Demand Generation</Label>
-        </div>
+      <div>
+        {/*
+        <RadioGroup>
+          <div className="flex items-center gap-3">
+            <RadioGroupItem value="Brand Awareness" id="r1" />
+            <Label htmlFor="r1">Brand Awareness</Label>
+          </div>
 
-        <div className="flex items-center gap-3">
-          <RadioGroupItem value="Demand Capture" id="r3" />
-          <Label htmlFor="r3">Demand Capture</Label>
-        </div>
-      </RadioGroup>
+          <div className="flex items-center gap-3">
+            <RadioGroupItem value="Demand Generation" id="r2" />
+            <Label htmlFor="r2">Demand Generation</Label>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <RadioGroupItem value="Demand Capture" id="r3" />
+            <Label htmlFor="r3">Demand Capture</Label>
+          </div>
+        </RadioGroup>
+        */}
+
+        <RadioGroup defaultValue="awareness" className="grid grid-cols-1 gap-4">
+          {["Brand Awareness", "Demand Generation", "Demand Capture"].map(
+            (funnel) => (
+              <label key={funnel} className="cursor-pointer">
+                <Card className="flex items-center justify-center h-16 w-70 rounded-full data-[state=checked]:bg-[#FF4E2A] bg-foreground dark:bg-neutral-900 hover:bg-[#FF4E2A] dark:hover:bg-[#FF4E2A]">
+                  <RadioGroupItem
+                    value={funnel.toLowerCase().replace(" ", "-")}
+                    className="hidden"
+                  />
+                  <span className="text-lg text-white font-medium">{funnel}</span>
+                </Card>
+              </label>
+            )
+          )}
+        </RadioGroup>
+
+
       </div>
     </div>
   );
