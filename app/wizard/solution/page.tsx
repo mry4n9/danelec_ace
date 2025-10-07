@@ -11,8 +11,13 @@ import {
   CircleSpark,
   DashboardSpeed,
   DatabaseTag,
+  DataTransferDown,
+  GasTank,
   Glasses,
   HealthShield,
+  SeaWaves,
+  Timer,
+  VideoCamera,
 } from "iconoir-react";
 
 const solutions = [
@@ -32,7 +37,41 @@ const solutions = [
     id: "voyage-insights",
     name: "Danelec Voyage Insights",
     icon: Glasses,
-    description: "Enhance voyage planning ",
+    description: "Enhance voyage planning",
+    subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
+  },
+
+  {
+    id: "green-charter",
+    name: "Danelec Green Charter",
+    icon: GasTank,
+    description: "Reduce Fuel and Emissions",
+    subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
+  },
+
+  {
+    id: "onboard-insights",
+    name: "Danelec Onboard Insights",
+    icon: SeaWaves,
+    description: "Elevate Onboard Operations",
+    subSolutions: [
+      { id: "1", name: "Onboard Insights solution 1", description: "3" },
+    ],
+  },
+
+  {
+    id: "collect",
+    name: "Danelec Collect",
+    icon: Timer,
+    description: "Unlock The Power of Maritime Data",
+    subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
+  },
+
+  {
+    id: "edge",
+    name: "Danelec Edge",
+    icon: Glasses,
+    description: "Secure Application Uptime",
     subSolutions: [{ id: "1", name: "Voyage Optimization", description: "3" }],
   },
 
@@ -48,7 +87,7 @@ const solutions = [
     id: "vdr",
     name: "Danelec VDR",
     icon: DatabaseTag,
-    description: "Reliable Voyage Data Recording ",
+    description: "Reliable Voyage Data Recording",
     subSolutions: [{ id: "1", name: "DM100 VDR G3", description: "3" }],
   },
 
@@ -57,6 +96,14 @@ const solutions = [
     name: "Danelec Safety Insights",
     icon: HealthShield,
     description: "Monitor and Prepare for Service",
+    subSolutions: [{ id: "1", name: "Safety Insights 1", description: "3" }],
+  },
+
+  {
+    id: "ipvi",
+    name: "Danelec IPVI",
+    icon: VideoCamera,
+    description: "Onboard Awareness",
     subSolutions: [{ id: "1", name: "Safety Insights 1", description: "3" }],
   },
 ];
@@ -69,7 +116,39 @@ export default function SolutionSelector() {
         Choose one solution to create copys for.
       </p>
 
-      {/*
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols 3 lg:grid-cols-3 gap-6">
+        {solutions.map((solution) => (
+          <Card
+            key={solution.id}
+            className="cursor-pointer transition-all hover:border-neutral-400  w-50 h-50"
+          >
+            <CardHeader className="flex flex-col items-center">
+              <div className="p-1.5 border rounded-2xl border-neutral-400 ">
+                <solution.icon className="size-10 " />
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <CardTitle className="tracking-wider font-bold">
+                {solution.name.includes("Danelec") ? (
+                  <>
+                    <span className="text-[#FF4E2A]">Danelec</span>{" "}
+                    {solution.name.replace("Danelec ", "")}
+                  </>
+                ) : (
+                  solution.name
+                )}
+              </CardTitle>
+              <CardDescription className="text-xs">{solution.description}</CardDescription>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+{
+  /* This is the old selection.
       <div className="mb-8 flex items-center gap-2">
         <span className="text-sm text-slate-600">Solution Selection</span>
       </div>
@@ -86,26 +165,7 @@ export default function SolutionSelector() {
           </Card>
         ))}
       </div>
-      */}
-
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols 3 lg:grid-cols-3 gap-6">
-        {solutions.map((solution) => (
-          <Card
-            key={solution.id}
-            className="cursor-pointer transition-all hover:border-neutral-400  w-52 h-50"
-          >
-            <CardHeader className="flex flex-col items-center">
-              <solution.icon className="size-11" />
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <CardTitle>{solution.name}</CardTitle>
-              <CardDescription>{solution.description}</CardDescription>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
+      */
 }
 
 {

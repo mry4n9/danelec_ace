@@ -50,9 +50,6 @@ export default function Stepper4() {
 
   return (
     <div className="space-y-8 text-center">
-      <h6>
-        Walk through the steps
-      </h6>
       <Stepper
         value={currentStep} // controlled value
         onValueChange={setCurrentStep} // click on a step updates state
@@ -101,8 +98,8 @@ export default function Stepper4() {
   );
 }
 
-
-{/*
+{
+  /* This component is a small message beneath the stepper
 <p
   className="text-muted-foreground mt-2 text-xs"
   role="region"
@@ -110,4 +107,5 @@ export default function Stepper4() {
 >
   Step {currentStep} of {maxStep}
 </p>;
-*/}
+*/
+}

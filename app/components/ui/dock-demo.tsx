@@ -14,13 +14,13 @@ import {
 import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import {
+  CloudSync,
   Filter,
   GoogleDocs,
   HomeSimpleDoor,
+  MessageText,
   NumberedListLeft,
-  PlusCircle,
-  SeaWaves,
-  SendDiagonal,
+  OpenSelectHandGesture,
   ViewGrid,
 } from "iconoir-react";
 
@@ -32,7 +32,11 @@ const DATA = {
     { href: "/wizard", icon: NumberedListLeft, label: "Wizard-setup" },
   ],
   navbar2: [
-    { href: "/wizard/solution", icon: SeaWaves, label: "Select solution" },
+    {
+      href: "/wizard/solution",
+      icon: OpenSelectHandGesture,
+      label: "Select solution",
+    },
     { href: "/wizard/funnel-stage", icon: Filter, label: "Funnel stage" },
     {
       href: "/wizard/messaging-matrix",
@@ -41,14 +45,14 @@ const DATA = {
     },
     {
       href: "/wizard/additional-context",
-      icon: PlusCircle,
+      icon: MessageText,
       label: "Additional context",
     },
   ],
   navbar3: [
     {
       href: "/progressbar",
-      icon: SendDiagonal,
+      icon: CloudSync,
       label: "Progress bar",
     },
     { href: "/editor", icon: GoogleDocs, label: "Edit-page" },
