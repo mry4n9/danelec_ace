@@ -15,7 +15,20 @@ import {
 import { AdobeIllustrator, DesignNibSolid, Star } from "iconoir-react";
 import Image from "next/image";
 
-export default function AdCard() {
+
+// This is new 21 Oct
+type AdCardProps = {
+  introductoryText: string;
+  imageText: string;
+  headline: string;
+};
+
+export default function AdCard({
+  introductoryText,
+  imageText,
+  headline,
+}: AdCardProps) {
+
   return (
     <Card className="w-90 bg-[#FAF9F9] dark:bg-neutral-900">
       <CardHeader className="flex items-center gap-2">
@@ -36,24 +49,20 @@ export default function AdCard() {
 
       <CardContent>
         <p className="text-sm">
-          When downtime isn&apos;t an option, your data must always be safe and
-          compliant. With 20+ years of proven reliability and the
-          industry&apos;s highest MTBF, the DM100 VDR G3 ensures safety-critical
-          data is always captured — protecting your fleet from detentions,
-          fines, and reputational risk.
+          {introductoryText}
         </p>
       </CardContent>
 
       <CardContent className="w-full p-0">
         <div className="px-9 py-15 bg-foreground dark:bg-neutral-300">
           <p className="text-background text-3xl font-bold">
-            Reliability you can trust. Compliance you can prove.
+            {imageText}
           </p>
         </div>
 
         <div className="bg-[#E9E6E3] dark:bg-[#888888] px-3 py-2 flex flex-row gap-3 items-center justify-between">
           <p className="font-semibold text-sm text-center text-left">
-            Request your compliance assessment today
+            {headline}
           </p>
           <Button className="font-medium rounded-full bg-[#998B8A] dark:bg-[#333333] text-white">Demo Request</Button>
         </div>

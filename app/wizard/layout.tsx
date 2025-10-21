@@ -15,12 +15,12 @@ export default function WizardLayout({
 
       {/* Main content */}
       <div className="relative flex flex-col px-4 py-4">
-        <h2 className="pb-10 text-center">Campaign Setup</h2>
+        <h1 className="pb-10 text-center">Campaign Setup (Wizard)</h1>
       
 
       {/* Main content */}
       <div className=" flex flex-col items-center">
-        <div className="w-full max-w-2xl mx-auto flex flex-col ">
+        <div className="mx-auto flex flex-col ">
           {children}
         </div>
       </div>
@@ -30,6 +30,9 @@ export default function WizardLayout({
     </div>
   );
 }
+
+// w-full max-w-2xl : these used to be in main content
+
 
 {
   /*
