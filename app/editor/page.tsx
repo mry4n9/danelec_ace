@@ -6,9 +6,10 @@ import DownloadXlsx from "./components/download-button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Ad } from "@/types/ad";
 
 export default function EditorPage() {
-  const [ads, setAds] = useState<any[]>([]);
+  const [ads, setAds] = useState<Ad[]>([]);
   const [count, setCount] = useState(1);
   const [loading, setLoading] = useState(false);
 
