@@ -1,7 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function FunnelSelector() {
   return (
@@ -40,14 +39,14 @@ export default function FunnelSelector() {
                     value={funnel.toLowerCase().replace(" ", "-")}
                     className="hidden"
                   />
-                  <span className="text-lg text-white font-medium">{funnel}</span>
+                  <span className="text-lg text-white font-medium">
+                    {funnel}
+                  </span>
                 </Card>
               </label>
             )
           )}
         </RadioGroup>
-
-
       </div>
     </div>
   );
