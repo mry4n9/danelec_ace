@@ -34,6 +34,204 @@ const solution = solutions;
 
 type WizardSolutionSchema = z.infer<typeof wizardSolutionSchema>;
 
+// Add these type definitions based on your solution structure
+type Solution = (typeof solution)[number];
+type SubSolution = Solution["subSolution"][number];
+
+export default function WizardSolutionForm() {
+  const router = useRouter();
+
+  const setData = useWizardStore((state) => state.setData);
+
+  const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
+  const [selectedSubSolution, setSelectedSubSolution] = useState<SubSolution | null>(null);
+
+  const form = useForm<WizardSolutionSchema>({
+    resolver: zodResolver(wizardSolutionSchema),
+    defaultValues: {
+      solution: "",
+      subSolution: "",
+    },
+  });
+
+  const handleSolutionClick = (sol: Solution) => {
+    setSelectedSolution(sol);
+    setSelectedSubSolution(null);
+    form.setValue("solution", sol.promptValue);
+    form.setValue("subSolution", "");
+    form.clearErrors("solution");
+  };
+
+  const handleSubSolutionClick = (subSol: SubSolution) => {
+    setSelectedSubSolution(subSol);
+    form.setValue("subSolution", subSol.subPromptValue);
+    form.clearErrors("subSolution");
+  };
+
+  const onSubmit = (data: WizardSolutionSchema) => {
+    setData(data);
+    router.push("/wizard/funnel");
+  };
+
+  return (
+    <div className="mt-10">
+      <FormProvider {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="solution"
+            rules={{ required: "Please select a solution" }}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg font-semibold block">
+                  Step 1: Select Main Category
+                </FormLabel>
+                <FormControl>
+                  <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {solution.map((sol) => (
+                      <Card
+                        key={sol.promptValue}
+                        className={`cursor-pointer transition-all duration-200 hover:border-neutral-400 w-50 h-50 ${
+                          selectedSolution?.promptValue === sol.promptValue
+                            ? "ring-2 ring-[#FC6F50]"
+                            : "hover:shadow-md"
+                        }`}
+                        onClick={() => handleSolutionClick(sol)}
+                      >
+                        <CardHeader className="flex flex-col items-center">
+                          <div className="p-1.5 border rounded-2xl border-neutral-400 ">
+                            <sol.icon className="size-10 " />
+                          </div>
+                        </CardHeader>
+
+                        <CardContent className="space-y-2">
+                          <CardTitle className="tracking-wide font-bold">
+                            {sol.title.includes("Danelec") ? (
+                              <>
+                                <span className="text-[#FF4E2A]">Danelec</span>{" "}
+                                {sol.title.replace("Danelec ", "")}
+                              </>
+                            ) : (
+                              sol.title
+                            )}
+                          </CardTitle>
+                          <CardDescription className="text-xs">
+                            {sol.description}
+                          </CardDescription>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {selectedSolution && (
+            <FormField
+              control={form.control}
+              name="subSolution"
+              rules={{ required: "Please select a sub-solution" }}
+              render={({ field }) => (
+                <FormItem className="animate-in fade-in slide-in-from-top-4 duration-300">
+                  <FormLabel className="text-lg font-semibold mt-5 block">
+                    Step 2: Select Specific Solution
+                  </FormLabel>
+                  <FormControl>
+                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                      {selectedSolution.subSolution.map((subSol) => (
+                        <Card
+                          key={subSol.subPromptValue}
+                          className={`cursor-pointer transition-all duration-200 hover:border-neutral-400 w-50 h-50 ${
+                            selectedSubSolution?.subPromptValue ===
+                            subSol.subPromptValue
+                              ? "ring-2 ring-[#FC6F50]"
+                              : "hover:shadow-md"
+                          }`}
+                          onClick={() => handleSubSolutionClick(subSol)}
+                        >
+                          <CardContent className="space-y-2">
+                            <CardTitle className="tracking-wide font-bold">
+                              {subSol.title.includes("Danelec") ? (
+                                <>
+                                  <span className="text-[#FF4E2A]">
+                                    Danelec
+                                  </span>{" "}
+                                  {subSol.title.replace("Danelec ", "")}
+                                </>
+                              ) : (
+                                subSol.title
+                              )}
+                            </CardTitle>
+                            <CardDescription className="text-xs">
+                              {subSol.description}
+                            </CardDescription>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+
+          <div className="flex justify-center pt-6">
+            <Button
+              type="submit"
+              className="hover:bg-[#FF4E2A] hover:dark:bg-[#FF4E2A]"
+            >
+              Next
+            </Button>
+          </div>
+        </form>
+      </FormProvider>
+    </div>
+  );
+}
+
+{
+  /* old working version but with solution and subSolution errors.
+"use client";
+
+import { z } from "zod";
+import { wizardSchema } from "../wizardSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormProvider, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { solutions } from "@/lib/solution";
+import { useWizardStore } from "../store";
+
+const wizardSolutionSchema = wizardSchema.pick({
+  solution: true,
+  subSolution: true,
+});
+
+const solution = solutions;
+
+type WizardSolutionSchema = z.infer<typeof wizardSolutionSchema>;
+
+
+
 export default function WizardSolutionForm() {
   const router = useRouter();
 
@@ -186,4 +384,6 @@ export default function WizardSolutionForm() {
       </FormProvider>
     </div>
   );
+}
+*/
 }
