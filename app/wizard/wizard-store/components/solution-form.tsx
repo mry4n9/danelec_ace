@@ -43,8 +43,11 @@ export default function WizardSolutionForm() {
 
   const setData = useWizardStore((state) => state.setData);
 
-  const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
-  const [selectedSubSolution, setSelectedSubSolution] = useState<SubSolution | null>(null);
+  const [selectedSolution, setSelectedSolution] = useState<Solution | null>(
+    null
+  );
+  const [selectedSubSolution, setSelectedSubSolution] =
+    useState<SubSolution | null>(null);
 
   const form = useForm<WizardSolutionSchema>({
     resolver: zodResolver(wizardSolutionSchema),

@@ -14,13 +14,7 @@ export async function POST(request: Request) {
     1. introductoryText: An engaging introduction paragraph about Danelec Fleet Insights (3-4 sentences).
     2. imageText: Acompanying image copy related to the introductoryText (6-9 words).
     3. headline: A catchy headline (5-7 words).
-    ${solution}
-    ${subSolution}
-    ${funnel}
-    ${customInstruction1}
-    ${customInstruction2}
-    ${customInstruction3}
-    ${customInstruction4}
+   
     `;
 
     const response = await ai.models.generateContent({

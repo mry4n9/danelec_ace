@@ -20,7 +20,6 @@ import { Controller, useForm } from "react-hook-form";
 import z from "zod";
 import { wizardSchema } from "../wizardSchema";
 import { useWizardStore } from "../store";
-import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 
@@ -48,7 +47,6 @@ export function WizardCountForm() {
   const customInstruction4 = useWizardStore(
     (state) => state.customInstruction4
   );
-  const count = useWizardStore((state) => state.count);
 
   const form = useForm<WizardCountSchema>({
     resolver: zodResolver(wizardCountSchema),
@@ -69,8 +67,6 @@ export function WizardCountForm() {
       customInstruction4,
     });
   };
-
- 
 
   return (
     <div className="">
@@ -140,8 +136,8 @@ export function WizardCountForm() {
   );
 }
 
-
- {/*useEffect(() => {
+{
+  /*useEffect(() => {
     if (!useWizardStore.persist.hasHydrated) return;
 
     if (
@@ -164,4 +160,5 @@ export function WizardCountForm() {
     customInstruction3,
     customInstruction4,
     router,
-  ]); */}
+  ]); */
+}

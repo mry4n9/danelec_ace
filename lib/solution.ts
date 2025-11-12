@@ -1,6 +1,5 @@
 import {
   CircleSpark,
-  CubeDotsSolid,
   DashboardSpeed,
   DatabaseTag,
   DataTransferDown,

@@ -20,7 +20,6 @@ import {
   HomeSimpleDoor,
   MessageText,
   Number1Square,
-  NumberedListLeft,
   OpenSelectHandGesture,
   ViewGrid,
 } from "iconoir-react";
