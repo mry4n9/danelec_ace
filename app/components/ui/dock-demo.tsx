@@ -19,6 +19,7 @@ import {
   GoogleDocs,
   HomeSimpleDoor,
   MessageText,
+  Number1Square,
   NumberedListLeft,
   OpenSelectHandGesture,
   ViewGrid,
@@ -27,19 +28,16 @@ import {
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 const DATA = {
-  navbar: [
-    { href: "/", icon: HomeSimpleDoor, label: "Home" },
-    { href: "/wizard", icon: NumberedListLeft, label: "Wizard-setup" },
-  ],
+  navbar: [{ href: "/", icon: HomeSimpleDoor, label: "Home" }],
   navbar2: [
     {
       href: "/wizard/solution",
       icon: OpenSelectHandGesture,
       label: "Select solution",
     },
-    { href: "/wizard/funnel-stage", icon: Filter, label: "Funnel stage" },
+    { href: "/wizard/funnel", icon: Filter, label: "Funnel stage" },
     {
-      href: "/wizard/messaging-matrix",
+      href: "/wizard/matrix",
       icon: ViewGrid,
       label: "Messaging matrix",
     },
@@ -47,6 +45,11 @@ const DATA = {
       href: "/wizard/additional-context",
       icon: MessageText,
       label: "Additional context",
+    },
+    {
+      href: "/wizard/count",
+      icon: Number1Square,
+      label: "Count",
     },
   ],
   navbar3: [

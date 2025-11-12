@@ -1,19 +1,14 @@
 import { z } from "zod";
 
 export const wizardSchema = z.object({
-    solution: z.string(),
-    subSolution: z.string(),
-    funnel: z.enum(["Brand Awareness", "Demand Generation", "Demand Capture"]),
-    quadrants: z.array(
-        z.object({
-            id: z.string(),
-            active: z.boolean(),
-            whitepaper: z.string().optional(),
-            adCount: z.number().min(1).max(5),
-        })
-    ),
-    customInstructions: z.string().optional()
+  solution: z.string(),
+  subSolution: z.string(),
+  funnel: z.string(),
+  customInstruction1: z.string().optional(),
+  customInstruction2: z.string().optional(),
+  customInstruction3: z.string().optional(),
+  customInstruction4: z.string().optional(),
+  count: z.string(),
 });
 
-export type WizardSchema =z.infer<typeof wizardSchema>;
-
+export type WizardSchema = z.infer<typeof wizardSchema>;

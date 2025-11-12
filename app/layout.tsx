@@ -39,10 +39,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="px-5 sm:px-0">
           {children}
-          <div className="fixed bottom-7 left-1/2 -translate-x-1/2">
+          </div>
+
+          <div className="fixed bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2">
             <DockDemo />
           </div>
+
           <LightDarkToggle className="fixed top-4 right-4" />
           <Footer />
         </ThemeProvider>

@@ -35,7 +35,7 @@ export default function EditorPage() {
 
   return (
     <div className="mt-15 min-h-screen flex flex-col items-center justify-center gap-8">
-      <h1>Edit Page</h1>
+      <h1 className="">Edit Page</h1>
       <p className="text-lg mb-10 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
         On the edit page, users can review the AI-generated ad content and see
         the final look, similar to how it will be shown online. Adjust the
@@ -66,19 +66,21 @@ export default function EditorPage() {
         </Button>
       </div>
 
-      <div className="w-full max-w-[1600px] px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:gap-0 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5 space-y-9">
+      <div>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-x-7 gap-y-8 justify-items-center">
           {ads.length > 0 ? (
-          ads.map((ad, index) => (
-            <AdCard
-              key={index}
-              introductoryText={ad.introductoryText}
-              imageText={ad.imageText}
-              headline={ad.headline}
-            />
-          ))
+            ads.map((ad, index) => (
+              <AdCard
+                key={index}
+                introductoryText={ad.introductoryText}
+                imageText={ad.imageText}
+                headline={ad.headline}
+              />
+            ))
           ) : (
-          <p className="text-muted-foreground text-center col-span-full">No ads generated yet.  </p>
+            <p className="text-muted-foreground text-center col-span-full">
+              This is only for demo purpose.{" "}
+            </p>
           )}
         </div>
       </div>

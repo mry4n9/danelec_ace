@@ -1,0 +1,189 @@
+"use client";
+
+import { z } from "zod";
+import { wizardSchema } from "../wizardSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormProvider, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { solutions } from "@/lib/solution";
+import { useWizardStore } from "../store";
+
+const wizardSolutionSchema = wizardSchema.pick({
+  solution: true,
+  subSolution: true,
+});
+
+const solution = solutions;
+
+type WizardSolutionSchema = z.infer<typeof wizardSolutionSchema>;
+
+export default function WizardSolutionForm() {
+  const router = useRouter();
+
+  const setData = useWizardStore((state) => state.setData);
+
+  const [selectedSolution, setSelectedSolution] = useState(null);
+  const [selectedSubSolution, setSelectedSubSolution] = useState(null);
+
+  const form = useForm<WizardSolutionSchema>({
+    resolver: zodResolver(wizardSolutionSchema),
+    defaultValues: {
+      solution: "",
+      subSolution: "",
+    },
+  });
+
+  const handleSolutionClick = (solution) => {
+    setSelectedSolution(solution);
+    setSelectedSubSolution(null);
+    form.setValue("solution", solution.promptValue);
+    form.setValue("subSolution", "");
+    form.clearErrors("solution");
+  };
+
+  const handleSubSolutionClick = (subSolution) => {
+    setSelectedSubSolution(subSolution);
+    form.setValue("subSolution", subSolution.subPromptValue);
+    form.clearErrors("subSolution");
+  };
+
+  const onSubmit = (data: WizardSolutionSchema) => {
+    setData(data);
+    router.push("/wizard/funnel");
+  };
+
+  return (
+    <div className="mt-10">
+      <FormProvider {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="solution"
+            rules={{ required: "Please select a solution" }}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg font-semibold block">
+                  Step 1: Select Main Category
+                </FormLabel>
+                <FormControl>
+                  <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {solution.map((solution) => (
+                      <Card
+                        key={solution.promptValue}
+                        className={`cursor-pointer transition-all duration-200 hover:border-neutral-400 w-50 h-50 ${
+                          selectedSolution?.promptValue === solution.promptValue
+                            ? "ring-2 ring-[#FC6F50]"
+                            : "hover:shadow-md"
+                        }`}
+                        onClick={() => handleSolutionClick(solution)}
+                      >
+                        <CardHeader className="flex flex-col items-center">
+                          <div className="p-1.5 border rounded-2xl border-neutral-400 ">
+                            <solution.icon className="size-10 " />
+                          </div>
+                        </CardHeader>
+
+                        <CardContent className="space-y-2">
+                          <CardTitle className="tracking-wide font-bold">
+                            {solution.title.includes("Danelec") ? (
+                              <>
+                                <span className="text-[#FF4E2A]">Danelec</span>{" "}
+                                {solution.title.replace("Danelec ", "")}
+                              </>
+                            ) : (
+                              solution.title
+                            )}
+                          </CardTitle>
+                          <CardDescription className="text-xs">
+                            {solution.description}
+                          </CardDescription>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {selectedSolution && (
+            <FormField
+              control={form.control}
+              name="subSolution"
+              rules={{ required: "Please select a sub-solution" }}
+              render={({ field }) => (
+                <FormItem className="animate-in fade-in slide-in-from-top-4 duration-300">
+                  <FormLabel className="text-lg font-semibold mt-5 block">
+                    Step 2: Select Specific Solution
+                  </FormLabel>
+                  <FormControl>
+                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                      {selectedSolution.subSolution.map((subSolution) => (
+                        <Card
+                          key={subSolution.subPromptValue}
+                          className={`cursor-pointer transition-all duration-200 hover:border-neutral-400 w-50 h-50 ${
+                            selectedSubSolution?.subPromptValue ===
+                            subSolution.subPromptValue
+                              ? "ring-2 ring-[#FC6F50]"
+                              : "hover:shadow-md"
+                          }`}
+                          onClick={() => handleSubSolutionClick(subSolution)}
+                        >
+                          <CardContent className="space-y-2">
+                            <CardTitle className="tracking-wide font-bold">
+                              {subSolution.title.includes("Danelec") ? (
+                                <>
+                                  <span className="text-[#FF4E2A]">
+                                    Danelec
+                                  </span>{" "}
+                                  {subSolution.title.replace("Danelec ", "")}
+                                </>
+                              ) : (
+                                subSolution.title
+                              )}
+                            </CardTitle>
+                            <CardDescription className="text-xs">
+                              {subSolution.description}
+                            </CardDescription>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+
+          <div className="flex justify-center pt-6">
+            <Button
+              type="submit"
+              className="hover:bg-[#FF4E2A] hover:dark:bg-[#FF4E2A]"
+            >
+              Next
+            </Button>
+          </div>
+        </form>
+      </FormProvider>
+    </div>
+  );
+}

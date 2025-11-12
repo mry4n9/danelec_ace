@@ -17,25 +17,25 @@ import {
 const steps = [
   {
     step: 1,
-    slug: "solution",
+
     title: "Step One",
     description: "Select Solution",
   },
   {
     step: 2,
-    slug: "funnel",
+
     title: "Step Two",
     description: "Select Funnel Stage",
   },
   {
     step: 3,
-    slug: "messaging-matrix",
+
     title: "Step Three",
     description: "Messaging Matrix",
   },
   {
     step: 4,
-    slug: "additional-context",
+
     title: "Step Four",
     description: "Additional Context",
   },

@@ -14,7 +14,20 @@ import {
 } from "@/components/ui/tooltip";
 import { AdobeIllustrator, DesignNibSolid, Star } from "iconoir-react";
 import Image from "next/image";
+import { useMemo } from "react";
 
+const unsplashImages = [
+  "https://images.unsplash.com/photo-1503942142281-94af0aded523?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1335",
+  "https://images.unsplash.com/photo-1511458206431-afcf3cebe562?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
+  "https://images.unsplash.com/photo-1483709898067-9fd28d4da0c4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1885",
+  "https://images.unsplash.com/photo-1626186032295-5c0d509bbad8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
+  "https://images.unsplash.com/photo-1755184635226-8d3ad612e38a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1527",
+  "https://images.unsplash.com/photo-1622222754849-f56e440a18ef?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1935",
+  "https://images.unsplash.com/photo-1597498450987-e4437f7d56a4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
+];
+
+const randomImage =
+  unsplashImages[Math.floor(Math.random() * unsplashImages.length)];
 
 // This is new 21 Oct
 type AdCardProps = {
@@ -28,9 +41,12 @@ export default function AdCard({
   imageText,
   headline,
 }: AdCardProps) {
-
+  const randomImage = useMemo(() => {
+    const index = Math.floor(Math.random() * unsplashImages.length);
+    return unsplashImages[index];
+  }, []);
   return (
-    <Card className="w-90 bg-[#FAF9F9] dark:bg-neutral-900">
+    <Card className="w-full sm:w-120 bg-[#fafafa] dark:bg-neutral-900">
       <CardHeader className="flex items-center gap-2">
         <Image
           src="/danelec_pp.jpeg"
@@ -48,47 +64,73 @@ export default function AdCard({
       </CardHeader>
 
       <CardContent>
-        <p className="text-sm">
-          {introductoryText}
-        </p>
+        <p className="text-sm">{introductoryText}</p>
       </CardContent>
 
-      <CardContent className="w-full p-0">
-        <div className="px-9 py-15 bg-foreground dark:bg-neutral-300">
-          <p className="text-background text-3xl font-bold">
-            {imageText}
-          </p>
+      <CardContent className="p-0">
+        <div className="relative h-95">
+          <Image
+            src={randomImage}
+            alt="random images"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-5 flex items-center justify-center">
+            <p className="text-white text-xl font-medium">{imageText}</p>
+          </div>
+          <div className="absolute bottom-6 left-6">
+            <Image
+              src="/Danelec_Logo_Orange-White.svg"
+              alt="Danelec brand"
+              width={100}
+              height={40}
+            />
+          </div>
         </div>
 
-        <div className="bg-[#E9E6E3] dark:bg-[#888888] px-3 py-2 flex flex-row gap-3 items-center justify-between">
+        <div className="bg-[#eff6ff] dark:bg-[#334155] px-3 py-2 flex flex-row gap-3 items-center justify-between">
           <p className="font-semibold text-sm text-center text-left">
             {headline}
           </p>
-          <Button className="font-medium rounded-full bg-[#998B8A] dark:bg-[#333333] text-white">Demo Request</Button>
+          <Button className="font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
+            Demo Request
+          </Button>
         </div>
 
-        <div className="mt-5 flex h-5 items-center justify-evenly text-muted-foreground ">
+        <div className="mt-5 flex h-2 items-center justify-evenly text-muted-foreground ">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:text-[#FF4E2A]"
+              >
                 <AdobeIllustrator className="size-7" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>Recreate with AI</TooltipContent>
           </Tooltip>
-          <Separator orientation="vertical" className="bg-foreground/30" />
+          <Separator orientation="vertical" className="bg-foreground/18" style={{ height: "28px", width: "2px" }} />
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:text-[#FF4E2A]"
+              >
                 <DesignNibSolid className="size-7.5" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>Edit ad</TooltipContent>
           </Tooltip>
-          <Separator orientation="vertical" className="bg-foreground/30" />
+          <Separator orientation="vertical" className="bg-foreground/18" style={{ height: "28px", width: "2px" }} />
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" className="hover:text-[#FF4E2A]">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:text-[#FF4E2A]"
+              >
                 <Star className="size-7" />
               </Button>
             </TooltipTrigger>
