@@ -110,7 +110,11 @@ export default function AdCard({
             </TooltipTrigger>
             <TooltipContent>Recreate with AI</TooltipContent>
           </Tooltip>
-          <Separator orientation="vertical" className="bg-foreground/18" style={{ height: "28px", width: "2px" }} />
+          <Separator
+            orientation="vertical"
+            className="bg-foreground/18"
+            style={{ height: "28px", width: "2px" }}
+          />
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
@@ -123,7 +127,11 @@ export default function AdCard({
             </TooltipTrigger>
             <TooltipContent>Edit ad</TooltipContent>
           </Tooltip>
-          <Separator orientation="vertical" className="bg-foreground/18" style={{ height: "28px", width: "2px" }} />
+          <Separator
+            orientation="vertical"
+            className="bg-foreground/18"
+            style={{ height: "28px", width: "2px" }}
+          />
           <Tooltip>
             <TooltipTrigger asChild>
               <Button

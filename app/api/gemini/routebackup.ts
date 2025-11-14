@@ -9,13 +9,7 @@ export async function POST(request: Request) {
       apiKey: process.env.GOOGLE_API_KEY,
     });
 
-    const prompt = `Write ${count} LinkedIn ads about ${solution} and ${subSolution}.
-    The ads should be targeted ${funnel}.
-    Detailed instructions:
-    ${customInstruction1}
-    ${customInstruction2}
-    ${customInstruction3}
-    ${customInstruction4}
+    const prompt = `Write ${count} LinkedIn ads about Danelec Fleet Insights.
     The ads consists of three properties, each properties set should have consistency in terms of messaging.
     1. introductoryText: An engaging introduction paragraph about Danelec Fleet Insights (3-4 sentences).
     2. imageText: Acompanying image copy related to the introductoryText (6-9 words).

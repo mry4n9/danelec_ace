@@ -66,6 +66,8 @@ export function WizardCountForm() {
       customInstruction3,
       customInstruction4,
     });
+
+    router.push("/editor")
   };
 
   return (

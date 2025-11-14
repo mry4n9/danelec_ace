@@ -90,11 +90,11 @@ export default function WizardSolutionForm() {
                   Step 1: Select Main Category
                 </FormLabel>
                 <FormControl>
-                  <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
                     {solution.map((sol) => (
                       <Card
                         key={sol.promptValue}
-                        className={`cursor-pointer transition-all duration-200 hover:border-neutral-400 w-50 h-50 ${
+                        className={`cursor-pointer transition-all duration-200 hover:border-neutral-400 w-full aspect-square sm:w-50 sm:h-50 ${
                           selectedSolution?.promptValue === sol.promptValue
                             ? "ring-2 ring-[#FC6F50]"
                             : "hover:shadow-md"
@@ -102,13 +102,13 @@ export default function WizardSolutionForm() {
                         onClick={() => handleSolutionClick(sol)}
                       >
                         <CardHeader className="flex flex-col items-center">
-                          <div className="p-1.5 border rounded-2xl border-neutral-400 ">
-                            <sol.icon className="size-10 " />
+                          <div className="p-1.5 border rounded-xl border-neutral-300 ">
+                            <sol.icon className="size-22 sm:size-10 " />
                           </div>
                         </CardHeader>
 
-                        <CardContent className="space-y-2">
-                          <CardTitle className="tracking-wide font-bold">
+                        <CardContent className="space-y-1">
+                          <CardTitle className="tracking-wide font-bold text-3xl sm:text-base">
                             {sol.title.includes("Danelec") ? (
                               <>
                                 <span className="text-[#FF4E2A]">Danelec</span>{" "}
@@ -118,7 +118,7 @@ export default function WizardSolutionForm() {
                               sol.title
                             )}
                           </CardTitle>
-                          <CardDescription className="text-xs">
+                          <CardDescription className="text-2xl sm:text-xs">
                             {sol.description}
                           </CardDescription>
                         </CardContent>
