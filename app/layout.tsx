@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "./components/ui/footer";
 import { LightDarkToggle } from "@/components/ui/light-dark-toggle";
+import { MainNavigation } from "./components/navigation-menu";
 import { DockDemo } from "./components/ui/dock-demo";
 
 const geistSans = Geist({
@@ -40,15 +41,17 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col flex-1">
+            <div className="flex items-center px-4 sm:px-6 lg:px-8 mt-4 gap-1">
+              <LightDarkToggle />
+              <MainNavigation />
+              
+            </div>
             <div className="flex-1 flex flex-col px-5 sm:px-0">
               {children}
             </div>
-
             <div className="fixed bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2">
               <DockDemo />
             </div>
-
-            <LightDarkToggle className="fixed top-4 right-4" />
             <Footer/>
           </div>
         </ThemeProvider>

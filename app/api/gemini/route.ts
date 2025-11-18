@@ -116,7 +116,7 @@ For each quadrant (and for each count), return an array of ads where each ad con
     const results = JSON.parse(responseText);
 
     // Include the full prompt in the response for debugging
-    const fullPrompt = prompt + `\n\nSystem Instruction: ${systemInstruction}`;
+    const fullPrompt = `System Instruction: ${systemInstruction}\n\n${prompt}`;
 
     return NextResponse.json({ results, prompt: fullPrompt });
   } catch (error) {

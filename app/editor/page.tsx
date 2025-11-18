@@ -2,6 +2,7 @@
 
 import AdCard from "./components/ad-card";
 import DownloadXlsx from "./components/download-button";
+import ResetButton from "./components/reset-button";
 import { useWizardStore } from "@/app/wizard/wizard-store/store";
 import {
   Tooltip,
@@ -41,7 +42,8 @@ export default function EditorPage() {
         On the edit page, users can review the AI-generated ad content and see
         the final look, similar to how it will be shown online.
       </p>
-      <div className="fixed top-4 right-18">
+      <div className="fixed top-4 right-18 flex items-center gap-4">
+        <ResetButton />
         <DownloadXlsx />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-x-7 gap-y-8 justify-items-center">
