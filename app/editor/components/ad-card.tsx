@@ -54,7 +54,7 @@ export default function AdCard({
     return unsplashImages[index];
   }, []);
   return (
-    <Card className="w-full sm:w-120 bg-[#fafafa] dark:bg-neutral-900">
+    <Card className="w-full sm:w-120 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
       <CardHeader className="flex items-center gap-2">
         <Image
           src="/danelec_pp.jpeg"
@@ -71,11 +71,11 @@ export default function AdCard({
         </div>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="flex-1">
         <p className="text-sm">{introductoryText}</p>
       </CardContent>
 
-      <CardContent className="p-0">
+      <CardContent className="p-0 flex-shrink-0">
         <div className="relative h-95">
           <Image
             src={randomImage}

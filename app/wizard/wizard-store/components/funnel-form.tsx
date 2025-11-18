@@ -25,17 +25,17 @@ type WizardFunnelSchema = z.infer<typeof wizardFunnelSchema>;
 
 const funnels = [
   {
-    id: "brand-awareness",
+    id: "brand awareness",
     title: "Brand Awareness",
     description: "Build brand recognition and reach",
   },
   {
-    id: "demand-generation",
+    id: "demand generation",
     title: "Demand Generation",
     description: "Generate interest and leads",
   },
   {
-    id: "demand-capture",
+    id: "demand capture",
     title: "Demand Capture",
     description: "Convert existing demand into sales",
   },
@@ -110,7 +110,7 @@ export default function WizardFunnelForm() {
           <Button
             type="button"
             variant="outline"
-            onClick={() => router.push("/wizard/solution3")}
+            onClick={() => router.push("/wizard/solution")}
           >
             Back
           </Button>
