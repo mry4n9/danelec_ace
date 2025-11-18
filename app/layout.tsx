@@ -32,23 +32,25 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="font-mono antialiased">
+      <body className="font-mono antialiased flex flex-col min-h-[100dvh]">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="px-5 sm:px-0">
-          {children}
-          </div>
+          <div className="flex flex-col flex-1">
+            <div className="flex-1 flex flex-col px-5 sm:px-0">
+              {children}
+            </div>
 
-          <div className="fixed bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2">
-            <DockDemo />
-          </div>
+            <div className="fixed bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2">
+              <DockDemo />
+            </div>
 
-          <LightDarkToggle className="fixed top-4 right-4" />
-          <Footer/>
+            <LightDarkToggle className="fixed top-4 right-4" />
+            <Footer/>
+          </div>
         </ThemeProvider>
       </body>
     </html>
