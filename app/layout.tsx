@@ -41,7 +41,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col flex-1">
-            <div className="flex items-center px-4 sm:px-6 lg:px-8 mt-4 gap-1">
+            <div className="flex items-center px-4 sm:px-6 mt-5 gap-1">
               <LightDarkToggle />
               <MainNavigation />
               

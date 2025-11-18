@@ -22,7 +22,7 @@ export function LightDarkToggle({ className }: { className?: string }) {
             setTheme(resolvedTheme === "light" ? "dark" : "light");
           }}
         >
-          <Button variant="outline" className={className}>
+          <Button variant="ghost" className={className}>
             <HalfMoon className="hidden dark:block" />
             <SunLight className="block dark:hidden" />
           </Button>
