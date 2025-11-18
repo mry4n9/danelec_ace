@@ -1,3 +1,5 @@
+{/* Backup for route.ts 
+  
 import { GoogleGenAI, Type } from "@google/genai";
 import { NextResponse } from "next/server";
 
@@ -56,3 +58,4 @@ export async function POST(request: Request) {
     );
   }
 }
+*/}
