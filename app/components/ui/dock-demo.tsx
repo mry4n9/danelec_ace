@@ -41,11 +41,6 @@ const DATA = {
       label: "Messaging matrix",
     },
     {
-      href: "/wizard/additional-context",
-      icon: MessageText,
-      label: "Additional context",
-    },
-    {
       href: "/wizard/count",
       icon: Number1Square,
       label: "Count",

@@ -16,22 +16,22 @@ export const solutions = [
     title: "Danelec Fleet Insights",
     icon: DashboardSpeed,
     description: "Track and boost ship performance",
-    promptValue: "Burger is bes12et",
+    promptValue: "Danelec Fleet Insights: Optmizes vessel performance with unified fleet-level data and actionable efficiency insights",
     subSolution: [
       {
         title: "Data Insights",
-        description: "Burger",
-        subPromptValue: "Burger is bes21e12egt",
+        description: "Aggregates and analyzes ship data from multiple sources to deliver a unified view of fleet performance and efficiency.",
+        subPromptValue: "Data Insights - Aggregates and analyzes ship data from multiple sources to deliver a unified view of fleet performance and efficiency.",
       },
       {
         title: "Fleet Insights",
-        description: "3fewfwe",
-        subPromptValue: "Burger is bestgerge",
+        description: "Provides comprehensive fleet-level performance analytics, operational insights, and predictive maintenance recommendations.",
+        subPromptValue: "Fleet Insights - Provides comprehensive fleet-level performance analytics, operational insights, and predictive maintenance recommendations.",
       },
       {
         title: "Emission Compliance",
-        description: "wfwefwfef",
-        subPromptValue: "Burger is beegerst",
+        description: "Supports emissions compliance with automated reporting, transparency, and environmental performance tracking.",
+        subPromptValue: "Emission Compliance - Supports emissions compliance with automated reporting, transparency, and environmental performance tracking.",
       },
     ],
   },
@@ -40,11 +40,11 @@ export const solutions = [
     title: "Danelec Voyage Insights",
     icon: Glasses,
     description: "Enhance voyage planning",
-    promptValue: "Burger is beergergst",
+    promptValue: "Danelec Voyage Insights: Transforms voyage data into clear performance, fuel, and route optimization intelligence.",
     subSolution: [
       {
         title: "Voyage Optimization",
-        description: "hrthrthrtshtrhtr",
+        description: "Optimizes voyage planning and execution by analyzing fuel consumption, route efficiency, and vessel performance metrics.",
         subPromptValue: "Burger is besegrget",
       },
     ],
@@ -54,7 +54,7 @@ export const solutions = [
     title: "Danelec Green Charter",
     icon: GasTank,
     description: "Reduce Fuel and Emissions",
-    promptValue: "Burger is besgegergt",
+    promptValue: "Danelec Green Charter: Supports emissions compliance with automated reporting, transparency, and environmental performance tracking.",
     subSolution: [
       {
         id: "1",
@@ -69,7 +69,7 @@ export const solutions = [
     title: "Danelec Onboard Insights",
     icon: SeaWaves,
     description: "Elevate Onboard Operations",
-    promptValue: "Burger is bestrnt",
+    promptValue: "Danelec Onboard Insights: Delivers real-time operational data directly from ship systems for faster, smarter onboard decisions.",
     subSolution: [
       {
         title: "Onboard Insights solution 1",
@@ -83,7 +83,7 @@ export const solutions = [
     title: "Danelec Collect",
     icon: DataTransferDown,
     description: "Unlock The Power of Maritime Data",
-    promptValue: "Burger is bestnrnsrrtg",
+    promptValue: "Danalec Collect: Securely acquires and normalizes vessel data from heterogeneous ship systems into a consistent digital format.",
     subSolution: [
       {
         title: "Voyage Optimization",
@@ -97,7 +97,7 @@ export const solutions = [
     title: "Danelec Edge",
     icon: Timer,
     description: "Secure Application Uptime",
-    promptValue: "Burger is bestergearge",
+    promptValue: "Danelec Edge: Edge-computing platform that processes, compresses, and transmits ship data reliably—online or offline.",
     subSolution: [
       {
         title: "Voyage Optimization",
@@ -111,7 +111,7 @@ export const solutions = [
     title: "Kyma Power Meter",
     icon: CircleSpark,
     description: "Track vessel power",
-    promptValue: "Burger is bestgerger",
+    promptValue: "Kyma Power Meter: Measures and logs shaft power, torque, and propulsion efficiency with high accuracy and low maintenance.",
     subSolution: [
       {
         title: "EPL to ShaPoLi",
@@ -125,7 +125,7 @@ export const solutions = [
     title: "Danelec VDR",
     icon: DatabaseTag,
     description: "Reliable Voyage Data Recording",
-    promptValue: "Burger is beste321e23rfevdf",
+    promptValue: "Danelec VDR: Reliable, compliant data recorder ensuring mandatory voyage, sensor, and audio capture for safety and investigations.",
     subSolution: [
       {
         title: "DM100 VDR G3",
@@ -139,7 +139,7 @@ export const solutions = [
     title: "Danelec Safety Insights",
     icon: HealthShield,
     description: "Monitor and Prepare for Service",
-    promptValue: "Burger is best34tgrev",
+    promptValue: "Danelec Safety Insights: Analyzes safety-critical data to identify risks, prevent incidents, and improve operational safety behavior.",
     subSolution: [
       {
         title: "Safety Insights 1",
@@ -153,7 +153,7 @@ export const solutions = [
     title: "Danelec IPVI",
     icon: VideoCamera,
     description: "Onboard Awareness",
-    promptValue: "Burger is befrestd12",
+    promptValue: "Danelec IPVI: Unifies performance, engine, and voyage data into a single analytical layer for end-to-end vessel optimization.",
     subSolution: [
       {
         title: "Super burger",

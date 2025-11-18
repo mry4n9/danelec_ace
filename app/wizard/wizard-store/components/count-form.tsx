@@ -22,6 +22,7 @@ import { wizardSchema } from "../wizardSchema";
 import { useWizardStore } from "../store";
 import { Card } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const wizardCountSchema = wizardSchema.pick({
   count: true,
@@ -31,6 +32,7 @@ type WizardCountSchema = z.infer<typeof wizardCountSchema>;
 
 export function WizardCountForm() {
   const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const solution = useWizardStore((state) => state.solution);
   const subSolution = useWizardStore((state) => state.subSolution);
@@ -47,6 +49,10 @@ export function WizardCountForm() {
   const customInstruction4 = useWizardStore(
     (state) => state.customInstruction4
   );
+  const whitePaper1 = useWizardStore((state) => state.whitePaper1);
+  const whitePaper2 = useWizardStore((state) => state.whitePaper2);
+  const whitePaper3 = useWizardStore((state) => state.whitePaper3);
+  const whitePaper4 = useWizardStore((state) => state.whitePaper4);
 
   const form = useForm<WizardCountSchema>({
     resolver: zodResolver(wizardCountSchema),
@@ -55,19 +61,62 @@ export function WizardCountForm() {
     },
   });
 
-  const onSubmit = (data: WizardCountSchema) => {
-    console.log({
-      ...data,
+  const onSubmit = async (data: WizardCountSchema) => {
+    setIsSubmitting(true);
+    const setData = useWizardStore.getState().setData;
+    const setAds = useWizardStore.getState().setAds;
+
+    // Save count to store
+    setData({ count: data.count });
+
+    // Prepare API request payload
+    const payload = {
       solution,
       subSolution,
       funnel,
-      customInstruction1,
-      customInstruction2,
-      customInstruction3,
-      customInstruction4,
-    });
+      customInstruction1: customInstruction1 || "",
+      customInstruction2: customInstruction2 || "",
+      customInstruction3: customInstruction3 || "",
+      customInstruction4: customInstruction4 || "",
+      whitePaper1: whitePaper1 || "",
+      whitePaper2: whitePaper2 || "",
+      whitePaper3: whitePaper3 || "",
+      whitePaper4: whitePaper4 || "",
+      count: data.count,
+    };
 
-    router.push("/editor")
+    try {
+      // Call Gemini API
+      const response = await fetch("/api/gemini", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to generate ads");
+      }
+
+      const { results, prompt } = await response.json();
+      
+      // Save ads and prompt to store
+      setAds(results);
+      if (prompt) {
+        const setPrompt = useWizardStore.getState().setPrompt;
+        setPrompt(prompt);
+      }
+
+      // Route to editor page
+      router.push("/editor");
+    } catch (error) {
+      console.error("Error generating ads:", error);
+      // Still route to editor even if there's an error
+      router.push("/editor");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -129,8 +178,9 @@ export function WizardCountForm() {
           <Button
             type="submit"
             className="hover:bg-[#FF4E2A] hover:dark:bg-[#FF4E2A]"
+            disabled={isSubmitting}
           >
-            Next
+            {isSubmitting ? "Generating..." : "Next"}
           </Button>
         </div>
       </form>
@@ -138,29 +188,4 @@ export function WizardCountForm() {
   );
 }
 
-{
-  /*useEffect(() => {
-    if (!useWizardStore.persist.hasHydrated) return;
 
-    if (
-      !solution ||
-      !subSolution ||
-      !funnel ||
-      !customInstruction1 ||
-      !customInstruction2 ||
-      !customInstruction3 ||
-      !customInstruction4
-    )
-      router.push("/wizard/solution");
-  }, [
-    useWizardStore.persist.hasHydrated,
-    solution,
-    subSolution,
-    funnel,
-    customInstruction1,
-    customInstruction2,
-    customInstruction3,
-    customInstruction4,
-    router,
-  ]); */
-}

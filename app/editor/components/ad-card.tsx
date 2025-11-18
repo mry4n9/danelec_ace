@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,6 +17,7 @@ import {
 import { AdobeIllustrator, DesignNibSolid, Star } from "iconoir-react";
 import Image from "next/image";
 import { useMemo } from "react";
+import { useWizardStore } from "@/app/wizard/wizard-store/store";
 
 const unsplashImages = [
   "https://images.unsplash.com/photo-1503942142281-94af0aded523?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1335",
@@ -26,21 +29,26 @@ const unsplashImages = [
   "https://images.unsplash.com/photo-1597498450987-e4437f7d56a4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
 ];
 
-const randomImage =
-  unsplashImages[Math.floor(Math.random() * unsplashImages.length)];
-
 // This is new 21 Oct
 type AdCardProps = {
   introductoryText: string;
   imageText: string;
   headline: string;
+  index: number;
 };
 
 export default function AdCard({
   introductoryText,
   imageText,
   headline,
+  index,
 }: AdCardProps) {
+  const isStarred = useWizardStore((state) => state.isStarred(index));
+  const toggleStarred = useWizardStore((state) => state.toggleStarred);
+
+  const handleStarClick = () => {
+    toggleStarred(index);
+  };
   const randomImage = useMemo(() => {
     const index = Math.floor(Math.random() * unsplashImages.length);
     return unsplashImages[index];
@@ -137,9 +145,16 @@ export default function AdCard({
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-[#FF4E2A]"
+                className={`group ${
+                  isStarred
+                    ? "bg-transparent border-0 shadow-none hover:bg-transparent"
+                    : "hover:bg-transparent"
+                }`}
+                onClick={handleStarClick}
               >
-                <Star className="size-7" />
+                <Star
+                  className={`size-7 ${isStarred ? "text-yellow-500 fill-yellow-500" : "text-muted-foreground group-hover:text-[#FF4E2A]"}`}
+                />
               </Button>
             </TooltipTrigger>
             <TooltipContent>

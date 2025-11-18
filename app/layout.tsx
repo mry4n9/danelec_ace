@@ -48,7 +48,7 @@ export default function RootLayout({
           </div>
 
           <LightDarkToggle className="fixed top-4 right-4" />
-          <Footer />
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>

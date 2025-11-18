@@ -22,12 +22,23 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { wizardSchema } from "../wizardSchema";
 import { useWizardStore } from "../store";
+import { useState } from "react";
+import { CheckCircle } from "iconoir-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const wizardMatrixSchema = wizardSchema.pick({
   customInstruction1: true,
   customInstruction2: true,
   customInstruction3: true,
   customInstruction4: true,
+  whitePaper1: true,
+  whitePaper2: true,
+  whitePaper3: true,
+  whitePaper4: true,
 });
 
 type WizardMatrixSchema = z.infer<typeof wizardMatrixSchema>;
@@ -37,6 +48,13 @@ export default function WizardMatrixForm() {
 
   const setData = useWizardStore((state) => state.setData);
 
+  const [uploadingStates, setUploadingStates] = useState({
+    whitePaper1: false,
+    whitePaper2: false,
+    whitePaper3: false,
+    whitePaper4: false,
+  });
+
   const form = useForm<WizardMatrixSchema>({
     resolver: zodResolver(wizardMatrixSchema),
     defaultValues: {
@@ -44,8 +62,52 @@ export default function WizardMatrixForm() {
       customInstruction2: "",
       customInstruction3: "",
       customInstruction4: "",
+      whitePaper1: "",
+      whitePaper2: "",
+      whitePaper3: "",
+      whitePaper4: "",
     },
   });
+
+  // Watch form values to track completed summaries
+  const whitePaper1Value = form.watch("whitePaper1");
+  const whitePaper2Value = form.watch("whitePaper2");
+  const whitePaper3Value = form.watch("whitePaper3");
+  const whitePaper4Value = form.watch("whitePaper4");
+
+  const handleFileUpload = async (
+    file: File,
+    fieldName: "whitePaper1" | "whitePaper2" | "whitePaper3" | "whitePaper4"
+  ) => {
+    if (!file || file.type !== "application/pdf") {
+      alert("Please upload a PDF file");
+      return;
+    }
+
+    setUploadingStates((prev) => ({ ...prev, [fieldName]: true }));
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("/api/gemini/summarize-pdf", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to summarize PDF");
+      }
+
+      const { summary } = await response.json();
+      form.setValue(fieldName, summary);
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      alert("Failed to summarize PDF. Please try again.");
+    } finally {
+      setUploadingStates((prev) => ({ ...prev, [fieldName]: false }));
+    }
+  };
 
   const onSubmit = (data: WizardMatrixSchema) => {
     setData(data);
@@ -76,12 +138,52 @@ export default function WizardMatrixForm() {
             <CardFooter className="mt-auto flex-col gap-2">
               <Separator className="mb-3" />
               <div className="grid w-full max-w-sm items-center gap-3">
-                <Label htmlFor="picture">Upload White Paper</Label>
+                <Label
+                  htmlFor="whitePaper1"
+                  className={`flex items-center gap-2 ${
+                    whitePaper1Value && !uploadingStates.whitePaper1
+                      ? "text-green-600"
+                      : ""
+                  }`}
+                >
+                  {whitePaper1Value && !uploadingStates.whitePaper1 ? (
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="flex items-center gap-1.5 cursor-help">
+                          <CheckCircle className="size-4 text-green-600" />
+                          <span>White Paper Uploaded and Summarized</span>
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        className="max-w-lg p-4 text-sm bg-popover text-popover-foreground border shadow-lg"
+                        
+                      >
+                        <p className="font-semibold mb-2 text-foreground">Summary:</p>
+                        <p className="whitespace-pre-wrap text-foreground leading-relaxed">{whitePaper1Value}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ) : (
+                    "Upload White Paper"
+                  )}
+                </Label>
                 <Input
-                  id="picture"
+                  id="whitePaper1"
                   type="file"
+                  accept="application/pdf"
                   className="hover:bg-gray-400 bg-gray-300 cursor-pointer"
+                  disabled={uploadingStates.whitePaper1}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      handleFileUpload(file, "whitePaper1");
+                    }
+                  }}
                 />
+                {uploadingStates.whitePaper1 && (
+                  <p className="text-sm text-muted-foreground">
+                    Summarizing PDF...
+                  </p>
+                )}
               </div>
               <FieldGroup>
                 <Controller
@@ -124,12 +226,52 @@ export default function WizardMatrixForm() {
             <CardFooter className="mt-auto flex-col gap-2">
               <Separator className="mb-3" />
               <div className="grid w-full max-w-sm items-center gap-3">
-                <Label htmlFor="picture">Upload White Paper</Label>
+                <Label
+                  htmlFor="whitePaper2"
+                  className={`flex items-center gap-2 ${
+                    whitePaper2Value && !uploadingStates.whitePaper2
+                      ? "text-green-600"
+                      : ""
+                  }`}
+                >
+                  {whitePaper2Value && !uploadingStates.whitePaper2 ? (
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="flex items-center gap-1.5 cursor-help">
+                          <CheckCircle className="size-4 text-green-600" />
+                          <span>White Paper Uploaded and Summarized</span>
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        className="max-w-lg p-4 text-sm bg-popover text-popover-foreground border shadow-lg"
+                        side="right"
+                      >
+                        <p className="font-semibold mb-2 text-foreground">Summary:</p>
+                        <p className="whitespace-pre-wrap text-foreground leading-relaxed">{whitePaper2Value}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ) : (
+                    "Upload White Paper"
+                  )}
+                </Label>
                 <Input
-                  id="picture"
+                  id="whitePaper2"
                   type="file"
+                  accept="application/pdf"
                   className="hover:bg-gray-400 bg-gray-300 cursor-pointer"
+                  disabled={uploadingStates.whitePaper2}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      handleFileUpload(file, "whitePaper2");
+                    }
+                  }}
                 />
+                {uploadingStates.whitePaper2 && (
+                  <p className="text-sm text-muted-foreground">
+                    Summarizing PDF...
+                  </p>
+                )}
               </div>
               <FieldGroup>
                 <Controller
@@ -168,12 +310,52 @@ export default function WizardMatrixForm() {
             <CardFooter className="mt-auto flex-col gap-2">
               <Separator className="mb-3" />
               <div className="grid w-full max-w-sm items-center gap-3">
-                <Label htmlFor="picture">Upload White Paper</Label>
+                <Label
+                  htmlFor="whitePaper3"
+                  className={`flex items-center gap-2 ${
+                    whitePaper3Value && !uploadingStates.whitePaper3
+                      ? "text-green-600"
+                      : ""
+                  }`}
+                >
+                  {whitePaper3Value && !uploadingStates.whitePaper3 ? (
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="flex items-center gap-1.5 cursor-help">
+                          <CheckCircle className="size-4 text-green-600" />
+                          <span>White Paper Uploaded and Summarized</span>
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        className="max-w-lg p-4 text-sm bg-popover text-popover-foreground border shadow-lg"
+                        side="right"
+                      >
+                        <p className="font-semibold mb-2 text-foreground">Summary:</p>
+                        <p className="whitespace-pre-wrap text-foreground leading-relaxed">{whitePaper3Value}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ) : (
+                    "Upload White Paper"
+                  )}
+                </Label>
                 <Input
-                  id="picture"
+                  id="whitePaper3"
                   type="file"
+                  accept="application/pdf"
                   className="hover:bg-gray-400 bg-gray-300 cursor-pointer"
+                  disabled={uploadingStates.whitePaper3}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      handleFileUpload(file, "whitePaper3");
+                    }
+                  }}
                 />
+                {uploadingStates.whitePaper3 && (
+                  <p className="text-sm text-muted-foreground">
+                    Summarizing PDF...
+                  </p>
+                )}
               </div>
               <FieldGroup>
                 <Controller
@@ -216,12 +398,52 @@ export default function WizardMatrixForm() {
             <CardFooter className="mt-auto flex-col gap-2">
               <Separator className="mb-3" />
               <div className="grid w-full max-w-sm items-center gap-3">
-                <Label htmlFor="picture">Upload White Paper</Label>
+                <Label
+                  htmlFor="whitePaper4"
+                  className={`flex items-center gap-2 ${
+                    whitePaper4Value && !uploadingStates.whitePaper4
+                      ? "text-green-600"
+                      : ""
+                  }`}
+                >
+                  {whitePaper4Value && !uploadingStates.whitePaper4 ? (
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="flex items-center gap-1.5 cursor-help">
+                          <CheckCircle className="size-4 text-green-600" />
+                          <span>White Paper Uploaded and Summarized</span>
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        className="max-w-lg p-4 text-sm bg-popover text-popover-foreground border shadow-lg"
+                        side="right"
+                      >
+                        <p className="font-semibold mb-2 text-foreground">Summary:</p>
+                        <p className="whitespace-pre-wrap text-foreground leading-relaxed">{whitePaper4Value}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ) : (
+                    "Upload White Paper"
+                  )}
+                </Label>
                 <Input
-                  id="picture"
+                  id="whitePaper4"
                   type="file"
+                  accept="application/pdf"
                   className="hover:bg-gray-400 bg-gray-300 cursor-pointer"
+                  disabled={uploadingStates.whitePaper4}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      handleFileUpload(file, "whitePaper4");
+                    }
+                  }}
                 />
+                {uploadingStates.whitePaper4 && (
+                  <p className="text-sm text-muted-foreground">
+                    Summarizing PDF...
+                  </p>
+                )}
               </div>
               <FieldGroup>
                 <Controller
