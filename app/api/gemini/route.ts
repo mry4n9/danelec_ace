@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       apiKey: process.env.GOOGLE_API_KEY,
     });
 
-    const prompt = `You are generating LinkedIn ads for Danelec solutions.
+    const prompt = `You are generating LinkedIn ads for Danelec.
 
 Create ad variations for each of the four messaging variations.
 Each variation should follow the same structure product context but reflect the unique angle.
@@ -40,11 +40,11 @@ Context:
 - Focus on this part: ${subSolution}
 - Marketing funnel stage: ${funnel}
 
-If a custom instruction is provided for a quadrant, incorporate it naturally into that quadrant's messaging. 
-If no custom instruction is provided, ignore it entirely. Do not reference or mention missing instructions.
+If a custom instruction is provided, incorporate it naturally into that variant's messaging. 
+If no custom instruction is provided, ignore it entirely.
 
-If a white paper summary is provided for a quadrant, use it to add relevant context and insights to that quadrant's messaging.
-If no white paper summary is provided, ignore it entirely. Do not reference or mention missing white papers.
+If a white paper summary is provided, use it to add relevant context and insights to that variant's messaging.
+If no white paper summary is provided, ignore it entirely.
 
 Messaging variants:
 Create ${count} of this variant.
