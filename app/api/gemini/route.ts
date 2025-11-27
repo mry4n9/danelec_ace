@@ -73,7 +73,7 @@ White paper context: ${whitePaper4 || "None provided"}
 
 Output Format:
 Return an array for each ad generated:
-1. introductoryText — 3 to 4 sentences introducing the solution and tied to the quadrant's angle.
+1. introductoryText — 4 to 5 sentences introducing the solution and tied to the quadrant's angle.
 2. imageText — 6 to 9 word supporting visual copy aligned with the introductoryText.
 3. headline — 5 to 7 word punchy headline reinforcing the message.
 `;
@@ -82,7 +82,7 @@ Return an array for each ad generated:
       "You are an experienced B2B SaaS copywriter with 20 years of expertise writing for C-suite executives and technical buyers. Your copy prioritizes clear ROI messaging and addresses buyer pain points directly. You write in a conversational but authoritative tone that builds credibility through specificity rather than hype. You focus on strategic benefits over features and avoid salesy language.";
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-2.5-flash",
       contents: prompt,
       config: {
         systemInstruction,

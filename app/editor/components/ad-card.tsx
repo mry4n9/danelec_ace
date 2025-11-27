@@ -16,20 +16,21 @@ import {
 } from "@/components/ui/tooltip";
 import { AdobeIllustrator, DesignNibSolid, Star } from "iconoir-react";
 import Image from "next/image";
-import { useMemo } from "react";
+// Removed useMemo as it is not needed for simple array access
 import { useWizardStore } from "@/app/wizard/wizard-store/store";
 
 const unsplashImages = [
   "https://images.unsplash.com/photo-1503942142281-94af0aded523?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1335",
-  "https://images.unsplash.com/photo-1511458206431-afcf3cebe562?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
-  "https://images.unsplash.com/photo-1483709898067-9fd28d4da0c4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1885",
-  "https://images.unsplash.com/photo-1626186032295-5c0d509bbad8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
-  "https://images.unsplash.com/photo-1755184635226-8d3ad612e38a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1527",
   "https://images.unsplash.com/photo-1622222754849-f56e440a18ef?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1935",
+  "https://images.unsplash.com/photo-1511458206431-afcf3cebe562?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
+  "https://images.unsplash.com/photo-1626186032295-5c0d509bbad8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
+  "https://images.unsplash.com/photo-1483709898067-9fd28d4da0c4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1885",
+  
+  "https://images.unsplash.com/photo-1755184635226-8d3ad612e38a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1527",
+  
   "https://images.unsplash.com/photo-1597498450987-e4437f7d56a4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1887",
 ];
 
-// This is new 21 Oct
 type AdCardProps = {
   introductoryText: string;
   imageText: string;
@@ -49,10 +50,12 @@ export default function AdCard({
   const handleStarClick = () => {
     toggleStarred(index);
   };
-  const randomImage = useMemo(() => {
-    const index = Math.floor(Math.random() * unsplashImages.length);
-    return unsplashImages[index];
-  }, []);
+
+  // LOGIC CHANGED HERE
+  // We use the remainder (%) operator.
+  // This ensures we cycle through the images 0-6, then loop back to 0.
+  const image = unsplashImages[index % unsplashImages.length];
+
   return (
     <Card className="w-full sm:w-120 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
       <CardHeader className="flex items-center gap-2">
@@ -78,8 +81,8 @@ export default function AdCard({
       <CardContent className="p-0 flex-shrink-0">
         <div className="relative h-95">
           <Image
-            src={randomImage}
-            alt="random images"
+            src={image} 
+            alt="Ad background"
             fill
             className="object-cover"
           />
