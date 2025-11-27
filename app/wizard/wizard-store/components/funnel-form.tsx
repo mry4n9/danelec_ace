@@ -58,7 +58,7 @@ export default function WizardFunnelForm() {
   };
 
   return (
-    <div>
+    <div className="flex justify-center">
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <Card className="w-full max-w-md px-5">
           <Controller

@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="py-25 px-4">
+    <div className="py-25 px-4 flex justify-center">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
           <h1 className="font-mono mb-4">About</h1>

@@ -118,11 +118,11 @@ export function WizardCountForm() {
       setIsSubmitting(false);
     }
   };
-
+ 
   return (
-    <div className="">
+    <div className="flex justify-center">
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card className="w-full sm:max-w-lg px-5">
+        <Card className="w-full sm:w-100 px-5">
           <FieldGroup>
             <FieldSet>
               <FieldGroup>
@@ -180,7 +180,7 @@ export function WizardCountForm() {
             className="hover:bg-[#FF4E2A] hover:dark:bg-[#FF4E2A]"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Generating..." : "Next"}
+            {isSubmitting ? "Generating..." : "Generate"}
           </Button>
         </div>
       </form>
