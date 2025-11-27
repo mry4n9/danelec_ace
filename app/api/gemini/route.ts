@@ -32,13 +32,13 @@ export async function POST(request: Request) {
 
     const prompt = `You are generating LinkedIn ads for Danelec solutions.
 
-Create ${count} ad variations for each of the four messaging quadrants (4 × ${count} total ads).
-Each variation should follow the same structure but reflect the quadrant's specific angle.
+Create ad variations for each of the four messaging variations.
+Each variation should follow the same structure product context but reflect the unique angle.
 
 Context:
-- Solution: ${solution}
-- Sub-solution: ${subSolution}
-- Funnel stage: ${funnel}
+- Product: ${solution}
+- Focus on this part: ${subSolution}
+- Marketing funnel stage: ${funnel}
 
 If a custom instruction is provided for a quadrant, incorporate it naturally into that quadrant's messaging. 
 If no custom instruction is provided, ignore it entirely. Do not reference or mention missing instructions.
@@ -46,32 +46,36 @@ If no custom instruction is provided, ignore it entirely. Do not reference or me
 If a white paper summary is provided for a quadrant, use it to add relevant context and insights to that quadrant's messaging.
 If no white paper summary is provided, ignore it entirely. Do not reference or mention missing white papers.
 
-Messaging Quadrants:
-1. PLAN & PERFORM (Quadrant 1)
-   Angle: Because operators need to plan and perform the most profitable voyages to minimize fuel consumption.
-   Custom instruction: ${customInstruction1 || "None provided"}
-   White paper context: ${whitePaper1 || "None provided"}
+Messaging variants:
+Create ${count} of this variant.
+PLAN & PERFORM
+Angle: Because operators need to plan and perform the most profitable voyages to minimize fuel consumption.
+Custom instruction: ${customInstruction1 || "None provided"}
+White paper context: ${whitePaper1 || "None provided"}
 
-2. OPERATIONAL PERFORMANCE (Quadrant 2)
-   Angle: Because they need to assess and improve operational performance backed with actionable insights and seamless collaboration across vessel, shore, and commercial partners.
-   Custom instruction: ${customInstruction2 || "None provided"}
-   White paper context: ${whitePaper2 || "None provided"}
+Create ${count} of this variant.
+OPERATIONAL PERFORMANCE (Quadrant 2)
+Angle: Because they need to assess and improve operational performance backed with actionable insights and seamless collaboration across vessel, shore, and commercial partners.
+Custom instruction: ${customInstruction2 || "None provided"}
+White paper context: ${whitePaper2 || "None provided"}
 
-3. MAINTENANCE & SCHEDULING (Quadrant 3)
-   Angle: Because they need to know when to optimally take vessels out of schedule for inspection and cleaning.
-   Custom instruction: ${customInstruction3 || "None provided"}
-   White paper context: ${whitePaper3 || "None provided"}
+Create ${count} of this variant.
+MAINTENANCE & SCHEDULING (Quadrant 3)
+Angle: Because they need to know when to optimally take vessels out of schedule for inspection and cleaning.
+Custom instruction: ${customInstruction3 || "None provided"}
+White paper context: ${whitePaper3 || "None provided"}
 
-4. REPORTING & COMPLIANCE (Quadrant 4)
-   Angle: Because they need to simplify reporting processes by streamlining monitoring and documentation, making it more organized and accessible.
-   Custom instruction: ${customInstruction4 || "None provided"}
-   White paper context: ${whitePaper4 || "None provided"}
+Create ${count} of this variant.
+REPORTING & COMPLIANCE (Quadrant 4)
+Angle: Because they need to simplify reporting processes by streamlining monitoring and documentation, making it more organized and accessible.
+Custom instruction: ${customInstruction4 || "None provided"}
+White paper context: ${whitePaper4 || "None provided"}
 
 Output Format:
-For each quadrant (and for each count), return an array of ads where each ad contains:
-1. introductoryText — 3–4 sentences introducing the solution and tied to the quadrant's angle.
-2. imageText — 6–9 word supporting visual copy aligned with the introductoryText.
-3. headline — 5–7 word punchy headline reinforcing the message.
+Return an array for each ad generated:
+1. introductoryText — 3 to 4 sentences introducing the solution and tied to the quadrant's angle.
+2. imageText — 6 to 9 word supporting visual copy aligned with the introductoryText.
+3. headline — 5 to 7 word punchy headline reinforcing the message.
 `;
 
     const systemInstruction =
