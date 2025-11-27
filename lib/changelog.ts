@@ -9,7 +9,7 @@
  * - Order entries from newest to oldest
  */
 
-export type ChangelogCategory = "Added" | "Changed" | "Fixed" | "Removed" | "Security";
+export type ChangelogCategory = "Added" | "Changed" | "Fixed" | "Removed" | "Security"| "Info";
 
 export interface ChangelogEntry {
   version: string;
@@ -22,34 +22,31 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
-    version: "1.0.3",
-    date: "2024-01-15",
+    version: "0.1.0",
+    date: "2025-11-27",
     changes: [
       {
         category: "Added",
         items: [
-          "Initial release of Danelec ACE",
+          "Initial handover of Danelec ACE",
           "Campaign creation wizard with step-by-step workflow",
-          "AI-powered ad content generation using Gemini",
-          "Edit page for reviewing and managing generated ads",
-          "Export functionality to download ads as Excel file",
+          "Using Gemini 2.5 flash",
+          "Edit page can review generated content",
           "Star/favorite system for marking preferred ads",
+          "Export functionality to download ads as Excel file",
           "Navigation menu with Home and Edit Page links",
           "Reset functionality to clear all campaign data",
         ],
       },
       {
-        category: "Changed",
+        category: "Info",
         items: [
-          "Improved user interface with clean, minimal design",
+          "Edit ads functionality is still under development",
+          "Edit ads with AI is still under development"
+          
         ],
       },
-      {
-        category: "Fixed",
-        items: [
-          "Fixed issue with reset button not clearing all campaign data",
-        ],
-      },
+      
     ],
   },
   // Add new updates below this line, ordered from newest to oldest

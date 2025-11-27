@@ -7,6 +7,7 @@ const categoryStyles: Record<ChangelogCategory, string> = {
   Fixed: "font-semibold",
   Removed: "font-semibold",
   Security: "font-semibold",
+  Info: "font-semibold",
 };
 
 function formatDate(dateString: string): string {

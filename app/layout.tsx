@@ -48,9 +48,9 @@ export default function RootLayout({
             <div className="flex-1 flex flex-col px-2 sm:px-0">
               {children}
             </div>
-            <div className="fixed bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2">
+            {/*Disabled dock<div className="fixed bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2">
               <DockDemo />
-            </div>
+            </div>*/}
             <Footer/>
           </div>
         </ThemeProvider>
