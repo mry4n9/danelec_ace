@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     const base64Data = buffer.toString("base64");
 
     const prompt =
-      "Summarize this document in 2-3 paragraphs, focusing on key insights, main findings, and actionable information that would be relevant for creating marketing content.";
+      "Summarize this document in 1-2 paragraphs, focusing on key insights, main findings, and actionable information that would be relevant for creating marketing content. ";
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-lite",

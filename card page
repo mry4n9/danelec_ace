@@ -1,3 +1,4 @@
+{/* Backup for editor page
 "use client";
 
 import { useState } from "react";
@@ -46,7 +47,7 @@ export default function EditorPage() {
         <DownloadXlsx />
       </div>
 
-      {/* Input controls */}
+      
       <div className="flex flex-row items-end gap-3">
         <div>
           <Label htmlFor="count">Number of ads</Label>
@@ -87,3 +88,5 @@ export default function EditorPage() {
     </div>
   );
 }
+
+*/}

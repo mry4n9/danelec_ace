@@ -45,7 +45,7 @@ export const solutions = [
       {
         title: "Voyage Optimization",
         description: "Optimizes voyage planning and execution by analyzing fuel consumption, route efficiency, and vessel performance metrics.",
-        subPromptValue: "Burger is besegrget",
+        subPromptValue: "Voyage Optimization",
       },
     ],
   },
@@ -59,8 +59,8 @@ export const solutions = [
       {
         id: "1",
         title: "Voyage Optimization",
-        description: "hrthtrshtsrhtr",
-        subPromptValue: "Burger is besgerget",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "Voyage Optimization",
       },
     ],
   },
@@ -72,9 +72,9 @@ export const solutions = [
     promptValue: "Danelec Onboard Insights: Delivers real-time operational data directly from ship systems for faster, smarter onboard decisions.",
     subSolution: [
       {
-        title: "Onboard Insights solution 1",
-        description: "hrthsrthtrhtr",
-        subPromptValue: "Burger is bestnrrtn",
+        title: "Onboard Insights",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "Onboard Insights",
       },
     ],
   },
@@ -86,9 +86,9 @@ export const solutions = [
     promptValue: "Danalec Collect: Securely acquires and normalizes vessel data from heterogeneous ship systems into a consistent digital format.",
     subSolution: [
       {
-        title: "Voyage Optimization",
-        description: "hrthsrthtrhtrhtrsh",
-        subPromptValue: "Burger is bestgrrtgrgr",
+        title: "Danelec Collect",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "Danelec Collect",
       },
     ],
   },
@@ -100,9 +100,9 @@ export const solutions = [
     promptValue: "Danelec Edge: Edge-computing platform that processes, compresses, and transmits ship data reliably—online or offline.",
     subSolution: [
       {
-        title: "Voyage Optimization",
-        description: "3h5h5h",
-        subPromptValue: "Burger is besgergerget",
+        title: "Danelec Edge",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "Danelec Edge",
       },
     ],
   },
@@ -115,8 +115,8 @@ export const solutions = [
     subSolution: [
       {
         title: "EPL to ShaPoLi",
-        description: "hrthrdhtrhrdhr",
-        subPromptValue: "Burger is besteargege",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "EPL to ShaPoLi",
       },
     ],
   },
@@ -129,8 +129,8 @@ export const solutions = [
     subSolution: [
       {
         title: "DM100 VDR G3",
-        description: "rhtrtydjmyrhrt",
-        subPromptValue: "Burger iferfs besefeeft",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "DM100 VDR G3",
       },
     ],
   },
@@ -142,9 +142,9 @@ export const solutions = [
     promptValue: "Danelec Safety Insights: Analyzes safety-critical data to identify risks, prevent incidents, and improve operational safety behavior.",
     subSolution: [
       {
-        title: "Safety Insights 1",
-        description: "3feeagferger",
-        subPromptValue: "Burger iefrs best12d",
+        title: "Safety Insights",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "Safety Insights",
       },
     ],
   },
@@ -156,9 +156,9 @@ export const solutions = [
     promptValue: "Danelec IPVI: Unifies performance, engine, and voyage data into a single analytical layer for end-to-end vessel optimization.",
     subSolution: [
       {
-        title: "Super burger",
-        description: "gergergregerg",
-        subPromptValue: "Burger is bes22e1t",
+        title: "IPVI",
+        description: "LoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        subPromptValue: "Danelec IPVI",
       },
     ],
   },

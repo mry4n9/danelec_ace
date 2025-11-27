@@ -90,7 +90,7 @@ export default function WizardSolutionForm() {
                   Step 1: Select Main Category
                 </FormLabel>
                 <FormControl>
-                  <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+                  <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
                     {solution.map((sol) => (
                       <Card
                         key={sol.promptValue}
