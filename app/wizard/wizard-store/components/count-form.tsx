@@ -130,8 +130,7 @@ export function WizardCountForm() {
                   <Field>
                     <FieldLabel>Select number of ads</FieldLabel>
                     <FieldDescription>
-                      Each messaging matrix will be generated. placeholder
-                      text....
+                      Choose how many ads to create for each quadrant.
                     </FieldDescription>
                     <Controller
                       name="count"

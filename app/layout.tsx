@@ -42,8 +42,8 @@ export default function RootLayout({
         >
           <div className="flex flex-col flex-1">
             <div className="flex items-center px-5 sm:px-7 mt-1 sm:mt-5 gap-1">
-              <LightDarkToggle />
               <MainNavigation />
+              <LightDarkToggle />
             </div>
             <div className="flex-1 flex flex-col px-2 sm:px-0">
               {children}
