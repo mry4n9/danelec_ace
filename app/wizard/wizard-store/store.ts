@@ -10,6 +10,7 @@ type WizardState = Partial<WizardSchema> & {
   setData: (data: Partial<WizardSchema>) => void;
   setAds: (ads: Ad[]) => void;
   setPrompt: (prompt: string) => void;
+  updateAd: (index: number, ad: Partial<Ad>) => void;
   toggleStarred: (index: number) => void;
   isStarred: (index: number) => boolean;
   reset: () => void;
@@ -22,6 +23,16 @@ export const useWizardStore = create<WizardState>()(
       setData: (data) => set(data),
       setAds: (ads) => set({ ads }),
       setPrompt: (prompt) => set({ prompt }),
+      updateAd: (index, updatedAd) =>
+        set((state) => {
+          const ads = state.ads || [];
+          if (index >= 0 && index < ads.length) {
+            const newAds = [...ads];
+            newAds[index] = { ...newAds[index], ...updatedAd };
+            return { ads: newAds };
+          }
+          return state;
+        }),
       toggleStarred: (index) =>
         set((state) => {
           const starred = state.starredAds || [];
