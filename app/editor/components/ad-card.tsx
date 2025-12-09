@@ -244,7 +244,7 @@ export default function AdCard({
                     >
                       Original
                     </Badge>
-                  <Card className="w-full sm:w-120 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
+                  <Card className="w-full sm:w-110 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
                     <CardHeader className="flex items-center gap-2">
                       <Image
                         src="/danelec_pp.jpeg"
@@ -284,10 +284,10 @@ export default function AdCard({
                         </div>
                       </div>
                       <div className="bg-[#eff6ff] dark:bg-[#334155] px-3 py-2 flex flex-row gap-3 items-center justify-between">
-                        <p className="font-semibold text-sm text-center text-left">
+                        <p className="font-sans font-medium text-sm text-center text-left">
                           {headline}
                         </p>
-                        <Button className="font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
+                        <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
                           Demo Request
                         </Button>
                       </div>
@@ -303,7 +303,7 @@ export default function AdCard({
                   >
                     New
                   </Badge>
-                  <Card className="w-full sm:w-120 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
+                  <Card className="w-full sm:w-110 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
                     <CardHeader className="flex items-center gap-2">
                       <Image
                         src="/danelec_pp.jpeg"
@@ -345,10 +345,10 @@ export default function AdCard({
                         </div>
                       </div>
                       <div className="bg-[#eff6ff] dark:bg-[#334155] px-3 py-2 flex flex-row gap-3 items-center justify-between">
-                        <p className="font-semibold text-sm text-center text-left">
+                        <p className="font-sans font-medium text-sm text-center text-left">
                           {previewAd.headline}
                         </p>
-                        <Button className="font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
+                        <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
                           Demo Request
                         </Button>
                       </div>
@@ -383,7 +383,7 @@ export default function AdCard({
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center pointer-events-none overflow-y-auto py-8">
           <div className="pointer-events-auto flex flex-col items-center gap-6 max-w-6xl w-full px-4">
             {/* Ad Card Display */}
-            <Card className="w-full sm:w-120 bg-[#fcfcfc] dark:bg-neutral-900 flex flex-col">
+            <Card className="w-full sm:w-110 bg-[#fcfcfc] dark:bg-neutral-900 flex flex-col">
               <CardHeader className="flex items-center gap-2">
                 <Image
                   src="/danelec_pp.jpeg"
@@ -423,10 +423,10 @@ export default function AdCard({
                   </div>
                 </div>
                 <div className="bg-[#eff6ff] dark:bg-[#334155] px-3 py-2 flex flex-row gap-3 items-center justify-between">
-                  <p className="font-semibold text-sm text-center text-left">
+                  <p className="font-sans font-medium text-sm text-center text-left">
                     {headline}
                   </p>
-                  <Button className="font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
+                  <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
                     Demo Request
                   </Button>
                 </div>
@@ -434,10 +434,10 @@ export default function AdCard({
             </Card>
             {/* Popover content positioned below the card */}
             {isAIEditOpen && (
-              <div className="w-full sm:w-120 bg-popover text-popover-foreground rounded-md border p-4 shadow-md">
+              <div className="w-full sm:w-110 bg-popover text-popover-foreground rounded-md border p-4 shadow-md">
                 <div className="grid gap-6">
                   <div className="space-y-2">
-                    <h4 className="font-medium leading-none text-lg">Edit with AI</h4>
+                    <h4 className="leading-none text-lg">Edit with AI</h4>
                     <p className="text-sm text-muted-foreground">
                       Select fields to edit, choose quick actions, or provide custom instructions
                     </p>
@@ -445,7 +445,7 @@ export default function AdCard({
 
                   {/* Field Selection */}
                   <div className="grid gap-4">
-                    <Label className="text-base font-semibold">Fields to Edit</Label>
+                    <Label className="h1">Fields to Edit</Label>
                     <div className="flex flex-wrap gap-4">
                       <div className="flex items-center gap-2">
                         <Checkbox
@@ -531,7 +531,14 @@ export default function AdCard({
                   </div>
 
                   {/* Generate Button */}
-                  <div className="flex justify-end">
+                  <div className="flex justify-center gap-3">
+                    <Button
+                      variant="destructive"
+                      onClick={handleAICancel}
+                      disabled={isGenerating}
+                    >
+                      Cancel
+                    </Button>
                     <Button
                       onClick={handleAIEdit}
                       disabled={
@@ -551,7 +558,7 @@ export default function AdCard({
           </div>
         </div>
       )}
-      <Card className="w-full sm:w-120 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
+      <Card className="w-full sm:w-110 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
       <CardHeader className="flex items-center gap-2">
         <Image
           src="/danelec_pp.jpeg"
@@ -594,10 +601,10 @@ export default function AdCard({
         </div>
 
         <div className="bg-[#eff6ff] dark:bg-[#334155] px-3 py-2 flex flex-row gap-3 items-center justify-between">
-          <p className="font-semibold text-sm text-center text-left">
+          <p className="font-sans font-medium text-sm text-center text-left">
             {headline}
           </p>
-          <Button className="font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
+          <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
             Demo Request
           </Button>
         </div>

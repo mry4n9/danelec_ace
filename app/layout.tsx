@@ -7,15 +7,12 @@ import { LightDarkToggle } from "@/components/ui/light-dark-toggle";
 import { MainNavigation } from "./components/navigation-menu";
 import { DockDemo } from "./components/ui/dock-demo";
 
-const aeonikRegular = localFont({
-  src: "../public/fonts/Aeonik-Regular.woff2",
-  variable: "--font-aeonik-regular",
-  display: "swap",
-});
-
-const aeonikMedium = localFont({
-  src: "../public/fonts/Aeonik-Medium.woff2",
-  variable: "--font-aeonik-medium",
+const aeonik = localFont({
+  src: [
+    { path: "../public/fonts/Aeonik-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/Aeonik-Medium.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-aeonik",
   display: "swap",
 });
 
@@ -33,7 +30,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${aeonikRegular.variable} ${aeonikMedium.variable}`}
+      className={aeonik.variable}   // ⬅️ use the combined font
     >
       <body className="font-sans antialiased flex flex-col min-h-[100dvh]">
         <ThemeProvider
@@ -50,10 +47,7 @@ export default function RootLayout({
             <div className="flex-1 flex flex-col px-2 sm:px-0">
               {children}
             </div>
-            {/*Disabled dock<div className="fixed bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2">
-              <DockDemo />
-            </div>*/}
-            <Footer/>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
