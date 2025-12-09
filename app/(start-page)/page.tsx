@@ -6,14 +6,14 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <>
-      <h1 className="font-mono mb-1 sm:mb-8 text-balance">
+      <h1 className="mb-1 sm:mb-8 text-balance">
         Welcome to Danelec
         <span className="italic text-[#FF4E2A]">ACE</span>
       </h1>
 
       {/*<p className="text-lg  mb-8 max-w-3xl mx-auto leading-relaxed text-muted-foreground">*/}
 
-      <p className="text-base sm:text-lg md:tx_lg max-w-4xl mx-auto leading-relaxed text-muted-foreground mb-6 sm:mb-8">
+      <p className="text-base sm:text-lg md:tx_lg max-w-4xl mx-auto leading-relaxed text-muted-foreground mb-6 sm:mb-8)">
         Danelec&apos;s in-house campaign copy tool allows you to create
         ready-to-post campaigns all within a single app.
         <span className="text-foreground"> Danelec</span>

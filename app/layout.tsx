@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "./components/ui/footer";
@@ -7,14 +7,16 @@ import { LightDarkToggle } from "@/components/ui/light-dark-toggle";
 import { MainNavigation } from "./components/navigation-menu";
 import { DockDemo } from "./components/ui/dock-demo";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const aeonikRegular = localFont({
+  src: "../public/fonts/Aeonik-Regular.woff2",
+  variable: "--font-aeonik-regular",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const aeonikMedium = localFont({
+  src: "../public/fonts/Aeonik-Medium.woff2",
+  variable: "--font-aeonik-medium",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,9 +33,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${aeonikRegular.variable} ${aeonikMedium.variable}`}
     >
-      <body className="font-mono antialiased flex flex-col min-h-[100dvh]">
+      <body className="font-sans antialiased flex flex-col min-h-[100dvh]">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
