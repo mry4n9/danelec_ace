@@ -38,6 +38,16 @@ type WizardSolutionSchema = z.infer<typeof wizardSolutionSchema>;
 type Solution = (typeof solution)[number];
 type SubSolution = Solution["subSolution"][number];
 
+// Helper function to check if solution has subSolutions
+const hasSubSolutions = (sol: Solution | null): boolean => {
+  return sol !== null && sol.subSolution && sol.subSolution.length > 0;
+};
+
+// Helper function to check if subSolution selection is required
+const isSubSolutionRequired = (sol: Solution | null): boolean => {
+  return sol !== null && sol.subSolution && sol.subSolution.length > 1;
+};
+
 export default function WizardSolutionForm() {
   const router = useRouter();
 
@@ -61,8 +71,16 @@ export default function WizardSolutionForm() {
     setSelectedSolution(sol);
     setSelectedSubSolution(null);
     form.setValue("solution", sol.promptValue);
-    form.setValue("subSolution", "");
+    
+    // Auto-select if only one subSolution exists
+    if (sol.subSolution && sol.subSolution.length === 1) {
+      form.setValue("subSolution", sol.subSolution[0].subPromptValue);
+      setSelectedSubSolution(sol.subSolution[0]);
+    } else {
+      form.setValue("subSolution", "");
+    }
     form.clearErrors("solution");
+    form.clearErrors("subSolution");
   };
 
   const handleSubSolutionClick = (subSol: SubSolution) => {
@@ -72,6 +90,17 @@ export default function WizardSolutionForm() {
   };
 
   const onSubmit = (data: WizardSolutionSchema) => {
+    // Validate subSolution only if required
+    if (selectedSolution && isSubSolutionRequired(selectedSolution)) {
+      if (!data.subSolution || data.subSolution.trim() === "") {
+        form.setError("subSolution", {
+          type: "required",
+          message: "Please select a sub-solution",
+        });
+        return;
+      }
+    }
+    
     setData(data);
     router.push("/wizard/funnel");
   };
@@ -86,7 +115,7 @@ export default function WizardSolutionForm() {
             rules={{ required: "Please select a solution" }}
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-lg font-semibold block">
+                <FormLabel className="text-lg block">
                   Step 1: Select Main Category
                 </FormLabel>
                 <FormControl>
@@ -131,15 +160,24 @@ export default function WizardSolutionForm() {
             )}
           />
 
-          {selectedSolution && (
+          {selectedSolution && hasSubSolutions(selectedSolution) && (
             <FormField
               control={form.control}
               name="subSolution"
-              rules={{ required: "Please select a sub-solution" }}
+              rules={{
+                required: isSubSolutionRequired(selectedSolution)
+                  ? "Please select a sub-solution"
+                  : false,
+              }}
               render={({ field }) => (
                 <FormItem className="animate-in fade-in slide-in-from-top-4 duration-300">
-                  <FormLabel className="text-lg font-semibold mt-5 block">
+                  <FormLabel className="text-lg mt-5 block">
                     Step 2: Select Specific Solution
+                    {!isSubSolutionRequired(selectedSolution) && (
+                      <span className="text-sm font-normal text-muted-foreground ml-2">
+                        (Optional)
+                      </span>
+                    )}
                   </FormLabel>
                   <FormControl>
                     <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

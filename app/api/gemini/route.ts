@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       count,
     } = body;
 
-    if (!solution || !subSolution || !funnel || !count) {
+    if (!solution || !funnel || !count) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -30,14 +30,16 @@ export async function POST(request: Request) {
       apiKey: process.env.GOOGLE_API_KEY,
     });
 
+    // Use subSolution if provided, otherwise use solution
+    const productContext = subSolution || solution;
+
     const prompt = `You are generating LinkedIn ads for Danelec.
 
 Create ad variations for each of the four messaging variations.
 Each variation should follow the same structure product context but reflect the unique angle.
 
 Context:
-- Product: ${solution}
-- Focus on this part: ${subSolution}
+- ${productContext}
 - Marketing funnel stage: ${funnel}
 
 If a custom instruction is provided, incorporate it naturally into that variant's messaging. 
@@ -54,19 +56,19 @@ Custom instruction: ${customInstruction1 || "None provided"}
 White paper context: ${whitePaper1 || "None provided"}
 
 Create ${count} of this variant.
-OPERATIONAL PERFORMANCE (Quadrant 2)
+OPERATIONAL PERFORMANCE
 Angle: Because they need to assess and improve operational performance backed with actionable insights and seamless collaboration across vessel, shore, and commercial partners.
 Custom instruction: ${customInstruction2 || "None provided"}
 White paper context: ${whitePaper2 || "None provided"}
 
 Create ${count} of this variant.
-MAINTENANCE & SCHEDULING (Quadrant 3)
+MAINTENANCE & SCHEDULING
 Angle: Because they need to know when to optimally take vessels out of schedule for inspection and cleaning.
 Custom instruction: ${customInstruction3 || "None provided"}
 White paper context: ${whitePaper3 || "None provided"}
 
 Create ${count} of this variant.
-REPORTING & COMPLIANCE (Quadrant 4)
+REPORTING & COMPLIANCE
 Angle: Because they need to simplify reporting processes by streamlining monitoring and documentation, making it more organized and accessible.
 Custom instruction: ${customInstruction4 || "None provided"}
 White paper context: ${whitePaper4 || "None provided"}

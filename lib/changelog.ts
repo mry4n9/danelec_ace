@@ -22,6 +22,21 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: "0.3.0",
+    date: "2025-12-17",
+    changes: [
+      {
+        category: "Changed",
+        items: [
+          "Updated the product list to reflect the latest product offerings",
+          "Updated logic to handle products selection without 'sub solutions'",
+          "CTA button updated based on funnel stage",
+          "Included campaign details in the Excel export (product, funnel stage and CTA)",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.2.0",
     date: "2025-12-9",
     changes: [
@@ -30,6 +45,7 @@ export const changelogData: ChangelogEntry[] = [
         items: [
           "Initial handover of Danelec ACE",
           "Implemented edit ads with AI",
+          "Side-by-side view of old and new ad ",
           "Implemented manual edit of ads",
           "Aeonik font family added and implemented"
         ],

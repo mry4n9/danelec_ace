@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const wizardSchema = z.object({
   solution: z.string(),
-  subSolution: z.string(),
+  subSolution: z.string().optional(),
   funnel: z.string(),
   customInstruction1: z.string().optional(),
   customInstruction2: z.string().optional(),

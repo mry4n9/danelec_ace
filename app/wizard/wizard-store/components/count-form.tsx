@@ -72,7 +72,7 @@ export function WizardCountForm() {
     // Prepare API request payload
     const payload = {
       solution,
-      subSolution,
+      subSolution: subSolution || undefined, // Only include if it exists
       funnel,
       customInstruction1: customInstruction1 || "",
       customInstruction2: customInstruction2 || "",

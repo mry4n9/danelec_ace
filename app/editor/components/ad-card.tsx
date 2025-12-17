@@ -60,6 +60,22 @@ const QUICK_ACTIONS = [
   "Emphasize benefits",
 ];
 
+// Helper function to get CTA button text based on funnel
+const getCTAText = (funnel: string | undefined): string => {
+  if (!funnel) return "Request Demo"; // Default fallback
+  
+  switch (funnel) {
+    case "brand awareness":
+      return "Learn More";
+    case "demand generation":
+      return "Download";
+    case "demand capture":
+      return "Request Demo";
+    default:
+      return "Request Demo";
+  }
+};
+
 export default function AdCard({
   introductoryText,
   imageText,
@@ -72,6 +88,8 @@ export default function AdCard({
   const solution = useWizardStore((state) => state.solution);
   const subSolution = useWizardStore((state) => state.subSolution);
   const funnel = useWizardStore((state) => state.funnel);
+  
+  const ctaText = getCTAText(funnel);
   
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [editIntroductoryText, setEditIntroductoryText] = useState(introductoryText);
@@ -288,7 +306,7 @@ export default function AdCard({
                           {headline}
                         </p>
                         <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
-                          Demo Request
+                          {ctaText}
                         </Button>
                       </div>
                     </CardContent>
@@ -349,7 +367,7 @@ export default function AdCard({
                           {previewAd.headline}
                         </p>
                         <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
-                          Demo Request
+                          {ctaText}
                         </Button>
                       </div>
                     </CardContent>
@@ -427,7 +445,7 @@ export default function AdCard({
                     {headline}
                   </p>
                   <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
-                    Demo Request
+                  {ctaText}
                   </Button>
                 </div>
               </CardContent>
@@ -605,7 +623,7 @@ export default function AdCard({
             {headline}
           </p>
           <Button className="font-sans font-medium rounded-full bg-[#eff6ff] dark:bg-[#334155] text-[#3b82f6] dark:text-[#93c5fd] border-1 border-[#3b82f6] dark:border-[#93c5fd]">
-            Demo Request
+            {ctaText}
           </Button>
         </div>
 
