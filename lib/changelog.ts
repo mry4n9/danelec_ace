@@ -60,7 +60,7 @@ export const changelogData: ChangelogEntry[] = [
         category: "Info",
         items: [
           "Campaign setup with step-by-step workflow",
-          "Using Gemini 2.5 flash",
+          "Using Gemini 2.5 flash for testing",
           "Edit page can review generated content",
           "Star/favorite system for marking preferred ads",
           "Export functionality to download ads as Excel file",
