@@ -13,7 +13,7 @@ export default function AboutPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-medium">What is Danelec ACE?</h2>
             <p className="text-foreground leading-relaxed">
-              <span className="font-semibold">Danelec ACE</span> (AI Content Engine) is
+              <span className="font-medium">Danelec ACE</span> (AI Content Engine) is
               Danelec&apos;s in-house campaign copy tool designed to simplify and
               accelerate the creation of ready-to-post marketing campaigns. Danelec ACE is meant to
               consolidates the entire campaign creation process under a single application.
@@ -24,21 +24,21 @@ export default function AboutPage() {
             <h2 className="text-2xl font-medium">Key Features</h2>
             <ul className="space-y-2 ml-6">
               <li className="text-foreground leading-relaxed list-disc">
-                <span className="font-semibold">Guided Workflow:</span> Step-by-step
+                <span className="font-medium">Guided Workflow:</span> Step-by-step
                 wizard that walks you through the campaign creation from solution selection
                 to final content generation
               </li>
               <li className="text-foreground leading-relaxed list-disc">
-                <span className="font-semibold">AI and Human-in-the-loop:</span> Leverages
+                <span className="font-medium">AI and Human-in-the-loop:</span> Leverages
                 Google&apos;s Gemini API to create the components in a campaign but designed with HITL (Human-in-the-loop) functionality
                 to leverage the speed of AI but the quality of human input
               </li>
               <li className="text-foreground leading-relaxed list-disc">
-                <span className="font-semibold">Content Management:</span> Review and edit
+                <span className="font-medium">Content Management:</span> Review and edit
                 generated ads with an intuitive interface
               </li>
               <li className="text-foreground leading-relaxed list-disc">
-                <span className="font-semibold">Export Functionality:</span> Download
+                <span className="font-medium">Export Functionality:</span> Download
                  campaigns as an Excel file
               </li>
             </ul>
