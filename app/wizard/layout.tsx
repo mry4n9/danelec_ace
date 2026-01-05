@@ -5,7 +5,7 @@ export default function WizardLayout({
 }) {
   return (
     <div className="">
-      <h1 className="py-8 sm:py-15 sm:text-center text-5xl sm:text-6xl">Campaign Settings</h1>
+      <h3 className="py-8 sm:py-15 sm:text-center text-3xl sm:text-5xl">Campaign Settings</h3>
       <div className="flex justify-center">{children}</div>
     </div>
   );

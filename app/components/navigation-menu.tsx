@@ -18,7 +18,7 @@ export function MainNavigation() {
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2 font-medium">
               Home
             </Link>
           </NavigationMenuLink>
@@ -26,21 +26,21 @@ export function MainNavigation() {
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/editor" className="flex items-center gap-2">
+            <Link href="/editor" className="flex items-center gap-2 font-medium">
               Edit Page
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/changelog" className="flex items-center gap-2">
+            <Link href="/changelog" className="flex items-center gap-2 font-medium">
               Changelog
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/about" className="flex items-center gap-2">
+            <Link href="/about" className="flex items-center gap-2 font-medium">
               About
             </Link>
           </NavigationMenuLink>

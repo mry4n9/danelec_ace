@@ -24,7 +24,7 @@ export function LightDarkToggle({ className }: { className?: string }) {
         >
           <Button variant="ghost" className={className}>
             <HalfMoon className="hidden dark:block" />
-            <SunLight className="block dark:hidden" />
+            <SunLight className="block dark:hidden text-[#FF4E2A]" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>

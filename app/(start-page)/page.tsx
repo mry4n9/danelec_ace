@@ -8,7 +8,7 @@ export default function LandingPage() {
     <>
       <h1 className="mb-1 sm:mb-8 text-balance">
         Welcome to Danelec
-        <span className="italic text-[#FF4E2A]">ACE</span>
+        <span className="italic text-[#FF4E2A] font-medium">ACE</span>
       </h1>
 
       {/*<p className="text-lg  mb-8 max-w-3xl mx-auto leading-relaxed text-muted-foreground">*/}
@@ -37,7 +37,7 @@ export default function LandingPage() {
 
       <Button
         asChild
-        className="group inline-flex items-center gap-2 font-mono text-white border border-transparent dark:bg-neutral-800 hover:bg-[#FF4E2A] hover:dark:bg-[#FF4E2A]"
+        className="group inline-flex items-center gap-2 text-white border border-transparent dark:bg-neutral-800 hover:bg-[#FF4E2A] hover:dark:bg-[#FF4E2A]"
       >
         <Link href="/wizard/solution">
           <Atom className="size-6 text-[#FF4E2A] group-hover:text-[#ebeff0]" />
