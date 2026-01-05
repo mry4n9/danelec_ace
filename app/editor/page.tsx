@@ -54,6 +54,7 @@ export default function EditorPage() {
               introductoryText={ad.introductoryText}
               imageText={ad.imageText}
               headline={ad.headline}
+              variantBadges={ad.variantBadges}
               index={index}
             />
           ))

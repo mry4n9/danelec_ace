@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -31,6 +31,7 @@ import Image from "next/image";
 // Removed useMemo as it is not needed for simple array access
 import { useWizardStore } from "@/app/wizard/wizard-store/store";
 import { Ad } from "@/types/ad";
+import { B1, B2, B3, B4 } from "./matrix-badges";
 
 const unsplashImages = [
   "https://images.unsplash.com/photo-1483709898067-9fd28d4da0c4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1885",
@@ -46,6 +47,7 @@ type AdCardProps = {
   introductoryText: string;
   imageText: string;
   headline: string;
+  variantBadges?: string[]; // Array of badge identifiers: ["B1", "B3"], etc.
   index: number;
 };
 
@@ -76,10 +78,31 @@ const getCTAText = (funnel: string | undefined): string => {
   }
 };
 
+// Helper function to render badges based on badge identifiers
+function renderBadges(badgeIds?: string[]) {
+  if (!badgeIds || badgeIds.length === 0) return null;
+
+  const badgeMap: Record<string, React.ReactNode> = {
+    B1: <B1 />,
+    B2: <B2 />,
+    B3: <B3 />,
+    B4: <B4 />,
+  };
+
+  return (
+    <div className="flex gap-2 flex-wrap">
+      {badgeIds.map((badgeId) => (
+        <div key={badgeId}>{badgeMap[badgeId]}</div>
+      ))}
+    </div>
+  );
+}
+
 export default function AdCard({
   introductoryText,
   imageText,
   headline,
+  variantBadges,
   index,
 }: AdCardProps) {
   const isStarred = useWizardStore((state) => state.isStarred(index));
@@ -577,20 +600,23 @@ export default function AdCard({
         </div>
       )}
       <Card className="w-full sm:w-110 bg-[#fcfcfc] dark:bg-neutral-900 h-full flex flex-col">
-      <CardHeader className="flex items-center gap-2">
-        <Image
-          src="/danelec_pp.jpeg"
-          alt="Danelec profile picture"
-          width={40}
-          height={40}
-          className="rounded-lg"
-        />
-        <div>
-          <CardTitle className="font-medium">Danelec</CardTitle>
-          <CardDescription className="text-muted-foreground text-xs">
-            Promoted
-          </CardDescription>
+      <CardHeader className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <Image
+            src="/danelec_pp.jpeg"
+            alt="Danelec profile picture"
+            width={40}
+            height={40}
+            className="rounded-lg"
+          />
+          <div>
+            <CardTitle className="font-medium">Danelec</CardTitle>
+            <CardDescription className="text-muted-foreground text-xs">
+              Promoted
+            </CardDescription>
+          </div>
         </div>
+        {renderBadges(variantBadges)}
       </CardHeader>
 
       <CardContent className="flex-1">
