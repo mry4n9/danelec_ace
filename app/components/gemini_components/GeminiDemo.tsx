@@ -52,7 +52,7 @@ export default function GeminiDemo() {
         <div className="space-y-4">
           {response.map((item, index) => (
             <div key={index} className="p-4 border rounded-lg bg-slate-50 space-y-2">
-              <h3 className="font-bold text-lg">{item.headline}</h3>
+              <h3 className="font-medium text-lg">{item.headline}</h3>
               <p className="text-sm text-slate-600">{item.imageText}</p>
               <p>{item.introductoryText}</p>
             </div>

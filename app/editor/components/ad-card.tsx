@@ -258,7 +258,7 @@ export default function AdCard({
                   <div className="relative flex flex-col items-center">
                     <Badge
                       variant="default"
-                      className="mb-2 px-4 py-2 text-sm font-semibold"
+                      className="mb-2 px-4 py-2 text-sm font-medium"
                     >
                       Original
                     </Badge>
@@ -272,7 +272,7 @@ export default function AdCard({
                         className="rounded-lg"
                       />
                       <div>
-                        <CardTitle className="font-bold">Danelec</CardTitle>
+                        <CardTitle className="font-medium">Danelec</CardTitle>
                         <CardDescription className="text-muted-foreground text-xs">
                           Promoted
                         </CardDescription>
@@ -317,7 +317,7 @@ export default function AdCard({
                 <div className="relative flex flex-col items-center">
                   <Badge
                     variant="default"
-                    className="mb-2 px-4 py-2 text-sm font-semibold"
+                    className="mb-2 px-4 py-2 text-sm font-medium"
                   >
                     New
                   </Badge>
@@ -331,7 +331,7 @@ export default function AdCard({
                         className="rounded-lg"
                       />
                       <div>
-                        <CardTitle className="font-bold">Danelec</CardTitle>
+                        <CardTitle className="font-medium">Danelec</CardTitle>
                         <CardDescription className="text-muted-foreground text-xs">
                           Promoted
                         </CardDescription>
@@ -411,7 +411,7 @@ export default function AdCard({
                   className="rounded-lg"
                 />
                 <div>
-                  <CardTitle className="font-bold">Danelec</CardTitle>
+                  <CardTitle className="font-medium">Danelec</CardTitle>
                   <CardDescription className="text-muted-foreground text-xs">
                     Promoted
                   </CardDescription>
@@ -515,7 +515,7 @@ export default function AdCard({
 
                   {/* Quick Actions */}
                   <div className="grid gap-4">
-                    <Label className="text-base font-semibold">Quick Actions</Label>
+                    <Label className="text-base font-medium">Quick Actions</Label>
                     <div className="flex flex-wrap gap-2">
                       {QUICK_ACTIONS.map((action) => (
                         <Badge
@@ -536,7 +536,7 @@ export default function AdCard({
 
                   {/* Custom Instruction */}
                   <div className="grid gap-2">
-                    <Label htmlFor="custom-instruction" className="text-base font-semibold">
+                    <Label htmlFor="custom-instruction" className="text-base font-medium">
                       Custom Instructions (Optional)
                     </Label>
                     <Textarea
@@ -586,7 +586,7 @@ export default function AdCard({
           className="rounded-lg"
         />
         <div>
-          <CardTitle className="font-bold">Danelec</CardTitle>
+          <CardTitle className="font-medium">Danelec</CardTitle>
           <CardDescription className="text-muted-foreground text-xs">
             Promoted
           </CardDescription>
