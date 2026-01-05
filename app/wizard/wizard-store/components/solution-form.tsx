@@ -137,7 +137,7 @@ export default function WizardSolutionForm() {
                         </CardHeader>
 
                         <CardContent className="space-y-1">
-                          <CardTitle className="tracking-wide font-bold text-3xl sm:text-base">
+                          <CardTitle className="tracking-wide font-medium text-3xl sm:text-base">
                             {sol.title.includes("Danelec") ? (
                               <>
                                 <span className="text-[#FF4E2A]">Danelec</span>{" "}
@@ -193,7 +193,7 @@ export default function WizardSolutionForm() {
                           onClick={() => handleSubSolutionClick(subSol)}
                         >
                           <CardContent className="space-y-2">
-                            <CardTitle className="tracking-wide font-bold">
+                            <CardTitle className="tracking-wide font-medium">
                               {subSol.title.includes("Danelec") ? (
                                 <>
                                   <span className="text-[#FF4E2A]">

@@ -22,6 +22,24 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: "0.4.0",
+    date: "2026-01-05",
+    changes: [
+      {
+        category: "Added",
+        items: [
+          "Updated model to Gemini 3 Flash",
+        ],
+      },
+      {
+        category: "Changed",
+        items: [
+          "Minor UI changes and improvements",
+        ],
+      },
+    ],
+  },
+  {
     version: "0.3.0",
     date: "2025-12-17",
     changes: [

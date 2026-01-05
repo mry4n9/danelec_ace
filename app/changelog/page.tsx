@@ -2,12 +2,12 @@ import { changelogData, ChangelogCategory } from "@/lib/changelog";
 import { Separator } from "@/components/ui/separator";
 
 const categoryStyles: Record<ChangelogCategory, string> = {
-  Added: "font-semibold",
-  Changed: "font-semibold",
-  Fixed: "font-semibold",
-  Removed: "font-semibold",
-  Security: "font-semibold",
-  Info: "font-semibold",
+  Added: "font-medium",
+  Changed: "font-medium",
+  Fixed: "font-medium",
+  Removed: "font-medium",
+  Security: "font-medium",
+  Info: "font-medium",
 };
 
 function formatDate(dateString: string): string {
@@ -24,7 +24,7 @@ export default function ChangelogPage() {
     <div className="py-25 px-4 flex justify-center">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <h1 className="font-mono mb-4">Changelog</h1>
+          <h1 className="mb-4">Changelog</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             All notable updates, changes, and fixes to Danelec ACE.
           </p>
@@ -35,7 +35,7 @@ export default function ChangelogPage() {
             <div key={entry.version} className="space-y-6">
               <div>
                 <div className="flex items-baseline gap-3 mb-2">
-                  <h2 className="font-mono text-2xl font-semibold">
+                  <h2 className="text-2xl font-medium">
                     Version {entry.version}
                   </h2>
                   <span className="text-sm text-muted-foreground">

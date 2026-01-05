@@ -14,13 +14,13 @@ export default function LandingPage() {
       {/*<p className="text-lg  mb-8 max-w-3xl mx-auto leading-relaxed text-muted-foreground">*/}
 
       <p className="text-base sm:text-lg md:tx_lg max-w-4xl mx-auto leading-relaxed text-muted-foreground mb-6 sm:mb-8)">
-        Danelec&apos;s in-house campaign copy tool allows you to create
-        ready-to-post campaigns all within a single app.
+        Danelec&apos;s in-house campaign copy tool allows you to compose
+        ready-to-post campaign material all within a single app.
         <span className="text-foreground"> Danelec</span>
         <span className="italic text-foreground">ACE</span>{" "}
         <span className="text-foreground">(AI Content Engine)</span> streamlines
         the entire process with a{" "}
-        <span className="text-foreground">guided, step-by-step workflow</span> -
+        <span className="text-foreground">guided, step-by-step workflow </span> 
         to consolidate the whole campaign creation.
       </p>
 

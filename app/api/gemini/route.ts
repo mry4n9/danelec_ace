@@ -84,11 +84,11 @@ Return an array for each ad generated:
       "You are an experienced B2B SaaS copywriter with 20 years of expertise writing for C-suite executives and technical buyers. Your copy prioritizes clear ROI messaging and addresses buyer pain points directly. You write in a conversational but authoritative tone that builds credibility through specificity rather than hype. You focus on strategic benefits over features and avoid salesy language.";
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3-flash-preview",
       contents: prompt,
       config: {
         systemInstruction,
-        temperature: 0.4,
+        temperature: 1,
         topP: 0.95,
         topK: 40,
         responseMimeType: "application/json",

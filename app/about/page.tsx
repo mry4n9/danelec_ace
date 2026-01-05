@@ -3,7 +3,7 @@ export default function AboutPage() {
     <div className="py-25 px-4 flex justify-center">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <h1 className="font-mono mb-4">About</h1>
+          <h1 className="mb-4">About</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Brief description of Danelec ACE and how it works.
           </p>
@@ -11,7 +11,7 @@ export default function AboutPage() {
 
         <div className="space-y-8">
           <section className="space-y-4">
-            <h2 className="font-mono text-2xl font-semibold">What is Danelec ACE?</h2>
+            <h2 className="text-2xl font-medium">What is Danelec ACE?</h2>
             <p className="text-foreground leading-relaxed">
               <span className="font-semibold">Danelec ACE</span> (AI Content Engine) is
               Danelec&apos;s in-house campaign copy tool designed to simplify and
@@ -21,7 +21,7 @@ export default function AboutPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="font-mono text-2xl font-semibold">Key Features</h2>
+            <h2 className="text-2xl font-medium">Key Features</h2>
             <ul className="space-y-2 ml-6">
               <li className="text-foreground leading-relaxed list-disc">
                 <span className="font-semibold">Guided Workflow:</span> Step-by-step
@@ -45,7 +45,7 @@ export default function AboutPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="font-mono text-2xl font-semibold">How It Works</h2>
+            <h2 className="text-2xl font-medium">How It Works</h2>
             <p className="text-foreground leading-relaxed">
               Danelec ACE guides you through a structured process: select your solution category,
               choose funnel stage, configure messaging matrix with optional custom intructions, specify campaign count,
